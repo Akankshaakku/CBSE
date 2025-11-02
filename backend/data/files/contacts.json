@@ -1,0 +1,13 @@
+[
+  {
+    "_id": "mhhd0myyk43fckxcnnh",
+    "name": "Test User",
+    "email": "test@test.com",
+    "phone": "",
+    "subject": "Test",
+    "message": "Test message",
+    "status": "new",
+    "createdAt": "2025-11-02T06:58:19.594Z",
+    "updatedAt": "2025-11-02T06:58:19.594Z"
+  }
+]
