@@ -31,90 +31,84 @@ const Faculty = () => {
     },
     {
       id: 5,
-      name: 'Krishna Kumar',
-      position: 'Science Teacher',
-      image: '/image/FAC3.png'
-    },
-    {
-      id: 6,
       name: 'M.N Singh',
       position: 'English Teacher',
       image: '/image/FAC4.png'
     },
     {
-      id: 7,
+      id: 6,
       name: 'Richa Pushpraj',
       position: 'General Knowledge Teacher',
       image: '/image/FAC5.png'
     },
     {
-      id: 8,
+      id: 7,
       name: 'Shivam Kumar',
       position: 'Sports Teacher',
       image: '/image/FAC22.png'
     },
     {
-      id: 9,
+      id: 8,
       name: 'Vinita Pandey',
       position: 'Snaskrit Teacher',
       image: '/image/FAC7.png'
     },
     {
-      id: 10,
+      id: 9,
       name: 'Prerna Kumari',
       position: 'S.S.T Teacher',
       image: '/image/FAC8.png'
     },
     {
-      id: 11,
+      id: 10,
       name: 'Kaushal Kishore',
       position: 'English Teacher',
       image: '/image/FAC9.png'
     },
     {
-      id: 12,
+      id: 11,
       name: 'Sanjay Suman',
       position: 'Science Teacher',
       image: '/image/FAC10.png'
     },
     {
-      id: 13,
+      id: 12,
       name: 'Anand Kumar Singh',
       position: 'Science Teacher',
       image: '/image/FAC11.png'
     },
     {
-      id: 14,
+      id: 13,
       name: 'Sanjiv Singh',
       position: 'Hindi Teacher',
       image: '/image/FAC12.png'
     },
     {
-      id: 15,
+      id: 14,
       name: 'Nivritti Singh',
       position: 'General Knowledge Teacher',
       image: '/image/FAC14.png'
     },
     {
-      id: 16,
+      id: 15,
       name: 'Dilip Singh',
       position: 'Maths Teacher',
       image: '/image/FAC16.png'
     },
     {
-      id: 17,
+      id: 16,
       name: 'Ram Naresh Singh',
       position: 'Hindi Teacher',
       image: '/image/FAC18.png'
     },
     {
-      id: 18,
+      id: 17,
       name: 'Sandhya Kumari',
       position: 'Snaskrit Teacher',
       image: '/image/FAC19.png'
     },
     {
-      id: 19,
+      id: 18,
       name: 'Vicky Kumar',
       position: 'Computer Teacher',
       image: '/image/FAC21.jpeg'
