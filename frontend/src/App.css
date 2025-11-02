@@ -1740,8 +1740,8 @@ p {
     opacity: 0;
     visibility: hidden;
     transform: translateX(-100%);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1001;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 1002 !important;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     display: flex !important;
@@ -1751,19 +1751,16 @@ p {
   }
 
   .navbar-menu-new.show {
-    pointer-events: auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(0) !important;
+    pointer-events: auto !important;
+    display: flex !important;
   }
 
   .dark-mode .navbar-menu-new {
     background: var(--card-bg);
     border-bottom: 1px solid var(--border);
-  }
-
-  .navbar-menu-new.show {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateX(0) !important;
-    display: flex !important;
   }
 
   /* Ensure nav items are visible when menu is shown */

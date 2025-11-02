@@ -61,9 +61,13 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
-  const toggleMenu = () => {
+  const toggleMenu = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     const newState = !isMenuOpen;
-    console.log('Toggle menu - Current:', isMenuOpen, 'New:', newState);
+    console.log('🔴 Toggle menu clicked! Current:', isMenuOpen, 'New:', newState);
     setIsMenuOpen(newState);
     // Close dropdowns when closing menu
     if (!newState) {
@@ -96,21 +100,36 @@ const Navbar = () => {
           ref={togglerRef}
           className="navbar-toggler-new"
           type="button"
-          onClick={(e) => {
+          onClick={toggleMenu}
+          onTouchEnd={(e) => {
             e.preventDefault();
             e.stopPropagation();
-            toggleMenu();
-          }}
-          onTouchStart={(e) => {
-            e.stopPropagation();
+            toggleMenu(e);
           }}
           aria-expanded={isMenuOpen}
           aria-label="Toggle navigation menu"
+          style={{ zIndex: 1002 }}
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
+
+        {isMenuOpen && (
+          <div 
+            className="mobile-menu-overlay"
+            onClick={toggleMenu}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'rgba(0,0,0,0.5)',
+              zIndex: 1000
+            }}
+          />
+        )}
 
         <div 
           ref={menuRef}
