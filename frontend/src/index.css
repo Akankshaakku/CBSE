@@ -1,0 +1,311 @@
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  font-weight: 400;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Bootstrap-like grid system */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  align-items: stretch;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .row {
+    margin-right: -12px;
+    margin-left: -12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .row {
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+}
+
+.col-lg-3, .col-lg-4, .col-lg-6, .col-lg-8, .col-md-4, .col-md-6, .col-sm-6,
+.col-lg-2, .col-lg-5, .col-lg-7, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12,
+.col-md-3, .col-md-5, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
+.col-sm-3, .col-sm-4, .col-sm-5, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 576px) {
+  .col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-md-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .col-lg-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  .col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .col-lg-8 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+/* Bootstrap-like navbar */
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #007bff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+}
+
+.nav-link:hover {
+  color: #0056b3;
+}
+
+.navbar-toggler {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.navbar-collapse {
+  flex-basis: 100%;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.navbar-collapse.show {
+  display: block;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav {
+    flex-direction: row;
+  }
+  
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+  
+  .navbar-expand-lg .navbar-toggler {
+    display: none;
+  }
+}
+
+/* Form styles */
+input.form-control,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="number"] {
+  display: block !important;
+  width: 100% !important;
+  padding: 14px 18px !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+  color: #495057 !important;
+  background-color: #fff !important;
+  background-clip: padding-box;
+  border: 2px solid #e8eef5 !important;
+  border-radius: 10px !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  font-family: 'Inter', sans-serif !important;
+  height: 52px !important;
+  min-height: 52px !important;
+  max-height: 52px !important;
+  box-sizing: border-box !important;
+  vertical-align: middle !important;
+}
+
+textarea.form-control,
+textarea {
+  display: block !important;
+  width: 100% !important;
+  padding: 14px 18px !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+  color: #495057 !important;
+  background-color: #fff !important;
+  background-clip: padding-box;
+  border: 2px solid #e8eef5 !important;
+  border-radius: 10px !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  font-family: 'Inter', sans-serif !important;
+  height: 52px !important;
+  min-height: 52px !important;
+  box-sizing: border-box !important;
+  resize: none !important;
+  overflow: hidden !important;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #e94560;
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+}
+
+.form-control::placeholder {
+  color: #999;
+  font-size: 0.95rem;
+}
+
+.form-group,
+.mb-3 {
+  margin-bottom: 20px !important;
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: 8px;
+  display: block;
+  font-size: 0.95rem;
+}
+
+/* Ensure consistent spacing for all form elements */
+form .mb-3 {
+  margin-bottom: 20px !important;
+}
+
+form button[type="submit"] {
+  margin-top: 20px;
+}
+
+/* Font Awesome icons fallback */
+.fas, .far, .fab {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+.fas:before {
+  content: "";
+}
+
+.fa-graduation-cap:before { content: "🎓"; }
+.fa-users:before { content: "👥"; }
+.fa-laptop:before { content: "💻"; }
+.fa-map-marker-alt:before { content: "📍"; }
+.fa-phone:before { content: "📞"; }
+.fa-envelope:before { content: "✉️"; }
+.fa-clock:before { content: "🕐"; }

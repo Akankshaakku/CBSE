@@ -1,0 +1,83 @@
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26, 75, 132, 0.1);
+  border: 2px solid rgba(26, 75, 132, 0.2);
+  border-radius: 25px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #1a4b84;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-mode-toggle:hover {
+  background: rgba(26, 75, 132, 0.15);
+  border-color: rgba(26, 75, 132, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 75, 132, 0.15);
+}
+
+.dark-mode-toggle.dark {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.dark-mode-toggle.dark:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.toggle-slider {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark-mode-toggle.dark .toggle-slider {
+  transform: rotate(180deg);
+}
+
+.toggle-slider i {
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.toggle-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .dark-mode-toggle {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .toggle-slider {
+    width: 20px;
+    height: 20px;
+  }
+
+  .toggle-slider i {
+    font-size: 0.9rem;
+  }
+
+  .toggle-label {
+    font-size: 0.75rem;
+  }
+}
+

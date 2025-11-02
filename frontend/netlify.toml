@@ -1,0 +1,10 @@
+[build]
+  base = "."
+  publish = "build"
+  command = "npm install && git lfs pull && npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
