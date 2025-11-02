@@ -24,15 +24,24 @@
 }
 
 .dark-mode-toggle.dark {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
 }
 
 .dark-mode-toggle.dark:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  background: rgba(59, 130, 246, 0.25);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  color: #dbeafe;
+}
+
+.dark-mode-toggle.dark .toggle-slider i {
+  color: #fbbf24;
+}
+
+.dark-mode-toggle.dark:hover .toggle-slider i {
+  color: #fcd34d;
 }
 
 .toggle-slider {

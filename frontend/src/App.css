@@ -460,7 +460,23 @@ p {
 }
 
 .dark-mode .btn-primary-new:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   box-shadow: 0 15px 45px rgba(59, 130, 246, 0.5);
+  color: white !important;
+}
+
+/* Dark mode toggle visibility in desktop navbar */
+.dark-mode .navbar-actions .dark-mode-toggle.dark {
+  background: rgba(59, 130, 246, 0.15) !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  color: #93c5fd !important;
+}
+
+.dark-mode .navbar-actions .dark-mode-toggle.dark:hover {
+  background: rgba(59, 130, 246, 0.25) !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  color: #dbeafe !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2) !important;
 }
 
 .btn-secondary-new {
@@ -2028,6 +2044,31 @@ p {
     padding: 8px 16px !important;
     font-size: 0.9rem !important;
     min-height: 36px !important;
+  }
+
+  /* Dark mode styles for navbar actions in mobile */
+  .dark-mode .navbar-actions .btn-primary-new {
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4) !important;
+  }
+
+  .dark-mode .navbar-actions .btn-primary-new:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%) !important;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6) !important;
+  }
+
+  /* Ensure dark mode toggle is visible in mobile */
+  .dark-mode .navbar-actions .dark-mode-toggle.dark {
+    background: rgba(59, 130, 246, 0.2) !important;
+    border-color: rgba(59, 130, 246, 0.4) !important;
+    color: #93c5fd !important;
+  }
+
+  .dark-mode .navbar-actions .dark-mode-toggle.dark:hover {
+    background: rgba(59, 130, 246, 0.3) !important;
+    border-color: rgba(59, 130, 246, 0.5) !important;
+    color: #dbeafe !important;
   }
 }
 
