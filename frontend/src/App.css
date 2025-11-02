@@ -1769,6 +1769,58 @@ p {
     border-bottom: 1px solid var(--border);
   }
 
+  /* Dark mode text colors for navbar items */
+  .dark-mode .nav-link-new {
+    color: #e2e8f0 !important;
+  }
+
+  .dark-mode .nav-link-new:hover,
+  .dark-mode .nav-link-new:active,
+  .dark-mode .nav-link-new:focus {
+    color: #fbbf24 !important;
+    background-color: rgba(251, 191, 36, 0.1) !important;
+  }
+
+  .dark-mode .dropdown-toggle-new {
+    color: #e2e8f0 !important;
+  }
+
+  .dark-mode .dropdown-toggle-new:hover,
+  .dark-mode .dropdown-toggle-new:active,
+  .dark-mode .dropdown-toggle-new:focus {
+    color: #fbbf24 !important;
+    background-color: rgba(251, 191, 36, 0.1) !important;
+  }
+
+  .dark-mode .dropdown-item-new {
+    color: #cbd5e1 !important;
+  }
+
+  .dark-mode .dropdown-item-new:hover,
+  .dark-mode .dropdown-item-new:active {
+    color: #fbbf24 !important;
+    background-color: rgba(251, 191, 36, 0.15) !important;
+  }
+
+  /* Dark mode icons in navbar */
+  .dark-mode .nav-link-new i,
+  .dark-mode .dropdown-toggle-new i {
+    color: #e2e8f0 !important;
+  }
+
+  .dark-mode .nav-link-new:hover i,
+  .dark-mode .dropdown-toggle-new:hover i {
+    color: #fbbf24 !important;
+  }
+
+  .dark-mode .dropdown-item-new i {
+    color: #cbd5e1 !important;
+  }
+
+  .dark-mode .dropdown-item-new:hover i {
+    color: #fbbf24 !important;
+  }
+
   /* Ensure nav items are visible when menu is shown */
   .navbar-menu-new.show .navbar-nav-new,
   .navbar-menu-new.show .navbar-nav-new li,
@@ -2055,6 +2107,31 @@ p {
   background: rgba(59, 130, 246, 0.15);
   border-left-color: var(--primary);
   color: var(--primary);
+}
+
+/* Dark mode navbar text colors for desktop */
+.dark-mode .nav-link-new {
+  color: #e2e8f0;
+}
+
+.dark-mode .nav-link-new:hover {
+  color: #fbbf24;
+}
+
+.dark-mode .dropdown-toggle-new {
+  color: #e2e8f0;
+}
+
+.dark-mode .dropdown-toggle-new:hover {
+  color: #fbbf24;
+}
+
+.dark-mode .dropdown-item-new {
+  color: #cbd5e1;
+}
+
+.dark-mode .dropdown-item-new:hover {
+  color: #fbbf24;
 }
 
 .dropdown-item-new i {
