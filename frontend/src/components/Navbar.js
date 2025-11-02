@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import DarkModeToggle from './DarkModeToggle';
 
@@ -7,6 +7,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isFacilitiesOpen, setIsFacilitiesOpen] = useState(false);
   const [isBlogOpen, setIsBlogOpen] = useState(false);
+  const menuRef = useRef(null);
+  const togglerRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,8 +18,56 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isMenuOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        togglerRef.current &&
+        !togglerRef.current.contains(event.target)
+      ) {
+        setIsMenuOpen(false);
+        setIsFacilitiesOpen(false);
+        setIsBlogOpen(false);
+      }
+    };
+
+    // Close menu on escape key
+    const handleEscape = (event) => {
+      if (event.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false);
+        setIsFacilitiesOpen(false);
+        setIsBlogOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+      document.addEventListener('keydown', handleEscape);
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    // Close dropdowns when closing menu
+    if (isMenuOpen) {
+      setIsFacilitiesOpen(false);
+      setIsBlogOpen(false);
+    }
   };
 
   const toggleFacilities = () => {
@@ -41,35 +91,72 @@ const Navbar = () => {
         </Link>
 
         <button
+          ref={togglerRef}
           className="navbar-toggler-new"
           type="button"
           onClick={toggleMenu}
           aria-expanded={isMenuOpen}
+          aria-label="Toggle navigation menu"
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <div className={`navbar-menu-new ${isMenuOpen ? 'show' : ''}`}>
+        <div 
+          ref={menuRef}
+          className={`navbar-menu-new ${isMenuOpen ? 'show' : ''}`}
+        >
           <ul className="navbar-nav-new">
             <li className="nav-item-new">
-              <Link className="nav-link-new" to="/" onClick={() => setIsMenuOpen(false)}>
+              <Link 
+                className="nav-link-new" 
+                to="/" 
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setIsFacilitiesOpen(false);
+                  setIsBlogOpen(false);
+                }}
+              >
                 Home
               </Link>
             </li>
             <li className="nav-item-new">
-              <Link className="nav-link-new" to="/about" onClick={() => setIsMenuOpen(false)}>
+              <Link 
+                className="nav-link-new" 
+                to="/about" 
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setIsFacilitiesOpen(false);
+                  setIsBlogOpen(false);
+                }}
+              >
                 About
               </Link>
             </li>
             <li className="nav-item-new">
-              <Link className="nav-link-new" to="/gallery" onClick={() => setIsMenuOpen(false)}>
+              <Link 
+                className="nav-link-new" 
+                to="/gallery" 
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setIsFacilitiesOpen(false);
+                  setIsBlogOpen(false);
+                }}
+              >
                 Gallery
               </Link>
             </li>
             <li className="nav-item-new">
-              <Link className="nav-link-new" to="/faculty" onClick={() => setIsMenuOpen(false)}>
+              <Link 
+                className="nav-link-new" 
+                to="/faculty" 
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setIsFacilitiesOpen(false);
+                  setIsBlogOpen(false);
+                }}
+              >
                 Faculty
               </Link>
             </li>
@@ -134,19 +221,43 @@ const Navbar = () => {
               </div>
             </li>
             <li className="nav-item-new">
-              <Link className="nav-link-new" to="/disclosure" onClick={() => setIsMenuOpen(false)}>
+              <Link 
+                className="nav-link-new" 
+                to="/disclosure" 
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setIsFacilitiesOpen(false);
+                  setIsBlogOpen(false);
+                }}
+              >
                 Disclosure
               </Link>
             </li>
             <li className="nav-item-new">
-              <Link className="nav-link-new" to="/contact" onClick={() => setIsMenuOpen(false)}>
+              <Link 
+                className="nav-link-new" 
+                to="/contact" 
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setIsFacilitiesOpen(false);
+                  setIsBlogOpen(false);
+                }}
+              >
                 Contact
               </Link>
             </li>
           </ul>
           <div className="navbar-actions">
             <DarkModeToggle />
-            <Link to="/contact" className="btn btn-primary-new btn-sm" onClick={() => setIsMenuOpen(false)}>
+            <Link 
+              to="/contact" 
+              className="btn btn-primary-new btn-sm" 
+              onClick={() => {
+                setIsMenuOpen(false);
+                setIsFacilitiesOpen(false);
+                setIsBlogOpen(false);
+              }}
+            >
               Enquiry Now
             </Link>
           </div>
