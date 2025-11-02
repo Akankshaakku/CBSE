@@ -1697,11 +1697,19 @@ p {
   }
 
   .navbar-toggler-new {
-    display: flex;
+    display: flex !important;
     position: relative;
     z-index: 1002;
     order: 2; /* Make it appear on the right */
     margin-left: auto;
+    pointer-events: auto !important;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(233, 69, 96, 0.3);
+  }
+
+  .navbar-toggler-new:active {
+    opacity: 0.6;
+    transform: scale(0.95);
   }
 
   /* Hamburger animation when menu is open */
@@ -1724,7 +1732,7 @@ p {
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
-    background: white;
+    background: white !important;
     flex-direction: column !important;
     padding: 1rem;
     padding-top: 80px;
@@ -1739,6 +1747,11 @@ p {
     display: flex !important;
     width: 100% !important;
     max-width: 100% !important;
+    pointer-events: none;
+  }
+
+  .navbar-menu-new.show {
+    pointer-events: auto;
   }
 
   .dark-mode .navbar-menu-new {
@@ -1753,6 +1766,37 @@ p {
     display: flex !important;
   }
 
+  /* Ensure nav items are visible when menu is shown */
+  .navbar-menu-new.show .navbar-nav-new,
+  .navbar-menu-new.show .navbar-nav-new li,
+  .navbar-menu-new.show .nav-item-new,
+  .navbar-menu-new.show .nav-link-new {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .navbar-menu-new.show .navbar-nav-new {
+    display: flex !important;
+  }
+
+  .navbar-menu-new.show .nav-item-new {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .navbar-menu-new.show .nav-link-new {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .navbar-menu-new.show .navbar-actions {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
   .navbar-nav-new {
     flex-direction: column !important;
     gap: 0.5rem;
@@ -1761,11 +1805,15 @@ p {
     list-style: none !important;
     margin: 0 !important;
     padding: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .nav-item-new {
     width: 100% !important;
-    display: list-item !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .nav-link-new {

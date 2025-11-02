@@ -62,9 +62,11 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    const newState = !isMenuOpen;
+    console.log('Toggle menu - Current:', isMenuOpen, 'New:', newState);
+    setIsMenuOpen(newState);
     // Close dropdowns when closing menu
-    if (isMenuOpen) {
+    if (!newState) {
       setIsFacilitiesOpen(false);
       setIsBlogOpen(false);
     }
@@ -94,7 +96,14 @@ const Navbar = () => {
           ref={togglerRef}
           className="navbar-toggler-new"
           type="button"
-          onClick={toggleMenu}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
+          }}
+          onTouchStart={(e) => {
+            e.stopPropagation();
+          }}
           aria-expanded={isMenuOpen}
           aria-label="Toggle navigation menu"
         >
