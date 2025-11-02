@@ -1812,6 +1812,7 @@ p {
     opacity: 1 !important;
     flex: 1 1 auto !important;
     overflow: visible !important;
+    align-items: center !important;
   }
 
   .nav-item-new {
@@ -1820,13 +1821,15 @@ p {
     visibility: visible !important;
     opacity: 1 !important;
     flex-shrink: 0 !important;
+    text-align: center !important;
   }
 
   .nav-link-new {
     padding: 10px 16px !important;
     min-height: 40px !important;
     display: flex !important;
-    align-items: center;
+    align-items: center !important;
+    justify-content: center !important;
     border-radius: 8px;
     transition: background-color 0.2s ease;
     width: 100%;
@@ -1837,6 +1840,7 @@ p {
     visibility: visible !important;
     opacity: 1 !important;
     color: var(--secondary) !important;
+    text-align: center !important;
   }
 
   .nav-link-new:active,
@@ -1854,10 +1858,10 @@ p {
     padding: 10px 16px !important;
     min-height: 40px !important;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center !important;
     border-radius: 8px;
     touch-action: manipulation;
-    text-align: left;
+    text-align: center !important;
     font-size: 0.95rem !important;
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(233, 69, 96, 0.2);
@@ -1865,6 +1869,7 @@ p {
     visibility: visible !important;
     opacity: 1 !important;
     color: var(--secondary) !important;
+    gap: 8px !important;
   }
 
   .dropdown-toggle-new:active,
@@ -1882,12 +1887,14 @@ p {
     background: rgba(233, 69, 96, 0.05);
     border: none;
     margin-top: 0.25rem !important;
-    margin-left: 1rem;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     border-radius: 8px;
     padding: 0.25rem 0 !important;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease, padding 0.3s ease;
+    text-align: center !important;
   }
 
   .dropdown-menu-new.show {
@@ -1903,7 +1910,8 @@ p {
     padding: 8px 20px !important;
     min-height: 36px !important;
     display: flex !important;
-    align-items: center;
+    align-items: center !important;
+    justify-content: center !important;
     touch-action: manipulation;
     -webkit-tap-highlight-color: rgba(233, 69, 96, 0.2);
     cursor: pointer;
@@ -1911,6 +1919,7 @@ p {
     opacity: 1 !important;
     color: var(--secondary) !important;
     font-size: 0.9rem !important;
+    text-align: center !important;
   }
 
   .dropdown-item-new:active {
