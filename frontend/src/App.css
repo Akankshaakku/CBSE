@@ -1759,7 +1759,7 @@ p {
     opacity: 0;
     visibility: hidden;
     transform: translateX(-100%);
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.3s ease;
     z-index: 1002 !important;
     overflow-y: visible !important;
     overflow-x: hidden !important;
@@ -1781,8 +1781,12 @@ p {
   }
 
   .dark-mode .navbar-menu-new {
-    background: var(--card-bg);
+    background: #0f172a !important; /* Dark slate background */
     border-bottom: 1px solid var(--border);
+  }
+
+  .dark-mode .navbar-menu-new.show {
+    background: #0f172a !important;
   }
 
   /* Dark mode text colors for navbar items */
@@ -1990,6 +1994,14 @@ p {
     outline: none !important;
   }
 
+  .dark-mode .dropdown-menu-new {
+    background: rgba(59, 130, 246, 0.1) !important;
+  }
+
+  .dark-mode .dropdown-menu-new.show {
+    background: rgba(59, 130, 246, 0.1) !important;
+  }
+
   .dropdown-menu-new.show {
     max-height: 500px;
     padding: 0.25rem 0 !important;
@@ -2037,7 +2049,7 @@ p {
   }
 
   .dark-mode .navbar-actions {
-    border-top-color: var(--border);
+    border-top-color: rgba(148, 163, 184, 0.3) !important;
   }
 
   .navbar-actions .btn {
