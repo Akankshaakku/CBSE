@@ -2848,6 +2848,8 @@ p {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 /* Footer specific contact item styles */
@@ -2858,6 +2860,11 @@ p {
   margin-bottom: 0;
 }
 
+.footer-new .contact-item .contact-info-text {
+  flex: 1;
+  min-width: 0;
+}
+
 .footer-new .contact-item i {
   color: #ffa502;
   font-size: 1.3rem;
@@ -2866,10 +2873,6 @@ p {
   min-width: 20px;
 }
 
-.footer-new .contact-item div {
-  flex: 1;
-  min-width: 0;
-}
 
 .footer-new .contact-item p {
   margin: 0;
@@ -5800,11 +5803,40 @@ html {
     width: 100%;
     margin: 0;
     padding: 0;
+    gap: 1rem;
   }
 
   .footer-new .contact-item {
     width: 100%;
     max-width: 100%;
+    margin-bottom: 0;
+  }
+
+  /* Remove extra space below Contact Info section on mobile */
+  .footer-new .contact-info-section {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .footer-new .contact-info-section .footer-contact {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Simplify contact item layout on mobile - remove labels */
+  .footer-new .contact-item .contact-info-text .label {
+    display: none;
+  }
+
+  .footer-new .contact-item .contact-info-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .footer-new .contact-item .contact-info-text p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
   }
 
   .footer-new .contact-item i {

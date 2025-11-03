@@ -136,26 +136,26 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col-lg-3 col-md-6 col-12 mb-4">
+          <div className="col-lg-3 col-md-6 col-12 mb-4 contact-info-section">
             <h6 className="footer-title">Contact Info</h6>
             <div className="footer-contact">
               <div className="contact-item">
                 <i className="fas fa-map-marker-alt"></i>
-                <div>
+                <div className="contact-info-text">
                   <p className="label">Address</p>
                   <p>Jiyalal Roy Chowk, Shekhpur, Ahiyapur, Akharaghat, Muzaffarpur, Bihar</p>
                 </div>
               </div>
               <div className="contact-item">
                 <i className="fas fa-phone"></i>
-                <div>
+                <div className="contact-info-text">
                   <p className="label">Phone</p>
                   <p>+91 9430810464<br/>+91 9798209332</p>
                 </div>
               </div>
               <div className="contact-item">
                 <i className="fas fa-envelope"></i>
-                <div>
+                <div className="contact-info-text">
                   <p className="label">Email</p>
                   <p>cppschoolmuz@gmail.com</p>
                 </div>
