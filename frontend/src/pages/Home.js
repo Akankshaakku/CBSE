@@ -82,7 +82,7 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
-  // Close modal on ESC key press
+  // Close modal on ESC key press and prevent body scroll when modal is open
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape' && selectedFacility) {
@@ -90,7 +90,37 @@ const Home = () => {
       }
     };
     window.addEventListener('keydown', handleEscape);
-    return () => window.removeEventListener('keydown', handleEscape);
+    
+    // Prevent body scroll when modal is open
+    if (selectedFacility) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      // Store scroll position for restoration
+      document.body.setAttribute('data-scroll-y', scrollY.toString());
+    } else {
+      // Restore scroll position
+      const scrollY = document.body.getAttribute('data-scroll-y');
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      document.body.removeAttribute('data-scroll-y');
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY));
+      }
+    }
+    
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+      // Cleanup: restore body scroll
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+    };
   }, [selectedFacility]);
 
   const features = [
@@ -127,7 +157,7 @@ const Home = () => {
   ];
 
   const highlights = [
-    { number: '500+', label: 'Students Enrolled', icon: 'fa-users' },
+    { number: '500+', label: 'Students Enrolled', icon: null },
     { number: '50+', label: 'Dedicated Faculty', icon: 'fa-chalkboard-user' },
     { number: '20+', label: 'Years of Excellence', icon: 'fa-trophy' },
     { number: '98%', label: 'Pass Rate', icon: 'fa-chart-line' }
@@ -280,7 +310,11 @@ const Home = () => {
               >
                 <div className="stat-card">
                   <div className="stat-icon">
-                    <i className={`fas ${item.icon}`}></i>
+                    {item.icon ? (
+                      <i className={`fas ${item.icon}`}></i>
+                    ) : (
+                      <span></span>
+                    )}
                   </div>
                   <h3 className="stat-number">{item.number}</h3>
                   <p className="stat-label">{item.label}</p>
