@@ -2810,6 +2810,11 @@ p {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Remove space between Contact Info title and content */
+.contact-info-section .footer-title {
+  margin-bottom: 0.5rem;
+}
+
 .dark-mode .footer-title,
 .dark-mode .footer-heading {
   color: rgba(255, 255, 255, 1);
@@ -5764,6 +5769,11 @@ html {
   .footer-heading {
     font-size: 1.1rem;
     margin-bottom: 1rem;
+  }
+
+  /* Remove space between Contact Info title and address on mobile */
+  .contact-info-section .footer-title {
+    margin-bottom: 0.75rem !important;
   }
 
   .footer-contact {
