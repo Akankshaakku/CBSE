@@ -880,6 +880,12 @@ p {
   overflow: hidden;
   width: 100%;
   max-width: 100vw;
+  /* Enable hardware acceleration for smooth scrolling */
+  will-change: scroll-position;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  /* Optimize rendering performance */
+  contain: layout style paint;
 }
 
 .facilities-section .container {
@@ -926,6 +932,11 @@ p {
   height: 100%;
   display: flex;
   flex-direction: column;
+  /* Hardware acceleration for smooth animations */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .facility-card::before {
@@ -979,6 +990,10 @@ p {
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
+  /* Hardware acceleration for image transforms */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
 }
 
 .facility-card:hover .facility-image {
@@ -5132,8 +5147,31 @@ html {
 
 /* Tablets (768px and below) */
 @media (max-width: 768px) {
+  /* Remove background-attachment: fixed on mobile for performance */
+  .facilities-section {
+    background-attachment: scroll !important;
+    /* Optimize scrolling performance */
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    touch-action: pan-y;
+    -webkit-touch-callout: none;
+  }
+
   .facility-card {
     margin-bottom: 20px;
+    /* Simplify transitions on mobile */
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    /* Optimize rendering */
+    contain: layout style;
+  }
+
+  /* Disable complex hover transforms on mobile */
+  .facility-card:hover {
+    transform: none !important;
+  }
+
+  .facility-card:hover .facility-image {
+    transform: none !important;
   }
 
   .facility-image-wrapper {
@@ -5188,8 +5226,43 @@ html {
 
 /* Mobile (576px and below) */
 @media (max-width: 576px) {
+  /* Remove background-attachment: fixed on small phones */
+  .facilities-section {
+    background-attachment: scroll !important;
+    padding: 60px 0;
+    /* Optimize for mobile scrolling */
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    touch-action: pan-y;
+    -webkit-touch-callout: none;
+    /* Reduce pseudo-element effects on mobile for performance */
+  }
+
+  .facilities-section::before,
+  .facilities-section::after {
+    display: none;
+  }
+
   .facility-card {
     margin-bottom: 15px;
+    /* Disable all hover effects on mobile */
+    transition: none !important;
+    /* Optimize touch interactions */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .facility-card:hover {
+    transform: none !important;
+    box-shadow: 0 8px 30px var(--shadow) !important;
+  }
+
+  .facility-card:hover::before {
+    transform: none !important;
+  }
+
+  .facility-card:hover .facility-image {
+    transform: none !important;
   }
 
   .facility-image-wrapper {
@@ -5208,6 +5281,10 @@ html {
   .facility-card p {
     font-size: 0.85rem;
     line-height: 1.5;
+  }
+
+  .facilities-section .container {
+    padding: 0 15px;
   }
 
   .about-image {

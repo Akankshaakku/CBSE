@@ -2,6 +2,46 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
+// Detect mobile devices to optimize animations
+const isMobile = () => {
+  return window.innerWidth <= 768;
+};
+
+// Get optimized animation props based on device
+const getAnimationProps = (isMobileDevice) => {
+  if (isMobileDevice) {
+    return {
+      initial: { opacity: 1 },
+      whileInView: { opacity: 1 },
+      transition: { duration: 0 },
+      viewport: { once: true, margin: '-50px' }
+    };
+  }
+  return {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 },
+    viewport: { once: true }
+  };
+};
+
+const getCardAnimationProps = (index, isMobileDevice) => {
+  if (isMobileDevice) {
+    return {
+      initial: { opacity: 1 },
+      whileInView: { opacity: 1 },
+      transition: { duration: 0 },
+      viewport: { once: true, margin: '-50px' }
+    };
+  }
+  return {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, delay: index * 0.05 },
+    viewport: { once: true, margin: '-100px' }
+  };
+};
+
 const Home = () => {
   // Array of school images for rotating background
   const heroImages = [
@@ -18,6 +58,18 @@ const Home = () => {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedFacility, setSelectedFacility] = useState(null);
+  const [mobileDevice, setMobileDevice] = useState(false);
+
+  // Detect mobile device on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setMobileDevice(isMobile());
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Auto-rotate images every 4 seconds
   useEffect(() => {
@@ -429,10 +481,7 @@ const Home = () => {
               <motion.div
                 key={index}
                 className="col-lg-3 col-md-6 col-sm-12"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                {...getCardAnimationProps(index, mobileDevice)}
               >
                 <div className="facility-card" onClick={() => setSelectedFacility(facility)} style={{ cursor: 'pointer' }}>
                   <div className="facility-image-wrapper">
