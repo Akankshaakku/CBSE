@@ -128,7 +128,7 @@ const Footer = () => {
             <h5 className="footer-heading">Resources</h5>
             <ul className="footer-links">
               <li><Link to="/#facilities"><i className="fas fa-building me-2"></i>Facilities</Link></li>
-              <li><Link to="/disclosure"><i className="fas fa-clipboard-list me-2"></i>Disclosure</Link></li>
+              <li><Link to="/disclosure"><i className="fas fa-clipboard-list me-2"></i>Mandatory Public Discloser</Link></li>
               <li><Link to="/#facilities"><i className="fas fa-flask me-2"></i>Labs & Equipment</Link></li>
               <li><Link to="/about"><i className="fas fa-history me-2"></i>School History</Link></li>
               <li><Link to="/faculty"><i className="fas fa-users me-2"></i>Meet Our Team</Link></li>

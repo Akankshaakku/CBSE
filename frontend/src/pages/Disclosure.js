@@ -81,7 +81,7 @@ const Disclosure = () => {
             transition={{ duration: 0.6 }}
             className="disclosure-hero-content"
           >
-            <h1>Mandatory Disclosure</h1>
+            <h1>Mandatory Public Discloser</h1>
             <p>Transparency and Compliance Documentation</p>
           </motion.div>
         </div>
@@ -141,15 +141,20 @@ const Disclosure = () => {
                         transition={{ duration: 0.3 }}
                         className="disclosure-body"
                       >
-                        <a
-                          href={item.file}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn btn-primary-new btn-sm"
-                        >
-                          <i className="fas fa-download me-2"></i>
-                          Download Certificate
-                        </a>
+                        <div style={{ width: '100%', height: '600px', marginTop: '15px' }}>
+                          <iframe
+                            src={`${item.file}#toolbar=0&navpanes=0&scrollbar=1`}
+                            style={{
+                              width: '100%',
+                              height: '100%',
+                              border: '1px solid #ddd',
+                              borderRadius: '8px'
+                            }}
+                            title={item.title}
+                          >
+                            <p>Your browser does not support PDFs. <a href={item.file} target="_blank" rel="noopener noreferrer">View PDF</a></p>
+                          </iframe>
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>

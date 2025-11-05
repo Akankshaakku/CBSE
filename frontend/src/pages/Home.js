@@ -341,7 +341,7 @@ const Home = () => {
               <div className="faculty-card text-center p-4 shadow rounded">
                 <div className="faculty-image-wrapper">
                   <img
-                    src="/image/principle.png"
+                    src="/image/IMG_20251105_120235.jpg"
                     alt="Anjani Kumari"
                     className="img-fluid rounded-circle"
                     style={{ width: '150px', height: '150px', objectFit: 'cover', margin: '0 auto' }}

@@ -257,7 +257,7 @@ const Navbar = () => {
                   setIsBlogOpen(false);
                 }}
               >
-                Disclosure
+                Mandatory Public Discloser
               </Link>
             </li>
             <li className="nav-item-new">

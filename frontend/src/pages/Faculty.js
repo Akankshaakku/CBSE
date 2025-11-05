@@ -14,7 +14,7 @@ const Faculty = () => {
       id: 2,
       name: 'Anjani Kumari',
       position: 'Principal',
-      image: '/image/principle.png'
+      image: '/image/IMG_20251105_120235.jpg'
     },
     {
       id: 3,
