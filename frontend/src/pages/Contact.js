@@ -25,21 +25,21 @@ const Contact = () => {
     
     // Basic validation
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      toast.error('कृपया सभी required fields भरें');
+      toast.error('Please fill in all required fields');
       return;
     }
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      toast.error('कृपया एक valid email address दर्ज करें');
+      toast.error('Please enter a valid email address');
       return;
     }
 
     setIsSubmitting(true);
     try {
       await apiService.contact.submit(formData);
-      toast.success('आपका message सफलतापूर्वक भेजा गया! हम जल्द ही आपसे contact करेंगे।');
+      toast.success('Your message has been sent successfully! We will contact you soon.');
       setFormData({
         name: '',
         email: '',
@@ -49,12 +49,12 @@ const Contact = () => {
       });
     } catch (error) {
       if (error.response) {
-        const errorMessage = error.response.data?.message || 'Message भेजने में समस्या आई। कृपया पुनः प्रयास करें।';
+        const errorMessage = error.response.data?.message || 'Failed to send message. Please try again.';
         toast.error(errorMessage);
       } else if (error.request) {
-        toast.error('Network error. कृपया अपना internet connection जांचें और पुनः प्रयास करें।');
+        toast.error('Network error. Please check your internet connection and try again.');
       } else {
-        toast.error('एक unexpected error आया है। कृपया पुनः प्रयास करें।');
+        toast.error('An unexpected error occurred. Please try again.');
       }
     } finally {
       setIsSubmitting(false);

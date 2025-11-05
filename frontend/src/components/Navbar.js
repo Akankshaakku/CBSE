@@ -67,7 +67,6 @@ const Navbar = () => {
       e.stopPropagation();
     }
     const newState = !isMenuOpen;
-    console.log('🔴 Toggle menu clicked! Current:', isMenuOpen, 'New:', newState);
     setIsMenuOpen(newState);
     // Close dropdowns when closing menu
     if (!newState) {

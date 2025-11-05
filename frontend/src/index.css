@@ -305,16 +305,14 @@ form button[type="submit"] {
   margin-top: 20px;
 }
 
-/* Font Awesome icons fallback */
+/* Font Awesome icons fallback - removed .fas:before rule that was preventing icons from displaying */
+/* Font Awesome CDN handles icon content, so we don't need to override it */
 .fas, .far, .fab {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
 }
 
-.fas:before {
-  content: "";
-}
-
+/* Individual icon fallbacks (optional - Font Awesome CDN should handle these) */
 .fa-graduation-cap:before { content: "🎓"; }
 .fa-users:before { content: "👥"; }
 .fa-laptop:before { content: "💻"; }

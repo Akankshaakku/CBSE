@@ -19,6 +19,7 @@ import Faculty from './pages/Faculty';
 import Contact from './pages/Contact';
 import Disclosure from './pages/Disclosure';
 import Blog from './pages/Blog';
+import NotFound from './pages/NotFound';
 
 // Styles
 import './App.css';
@@ -50,6 +51,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/disclosure" element={<Disclosure />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
             <Toaster

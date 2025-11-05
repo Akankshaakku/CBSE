@@ -15,38 +15,38 @@ const Footer = () => {
     const trimmedEmail = newsletterEmail.trim();
     
     if (!trimmedEmail) {
-      toast.error('कृपया अपना email address दर्ज करें');
+      toast.error('Please enter your email address');
       return;
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(trimmedEmail)) {
-      toast.error('कृपया एक valid email address दर्ज करें');
+      toast.error('Please enter a valid email address');
       return;
     }
 
     setIsSubmitting(true);
     try {
       await apiService.newsletter.subscribe(trimmedEmail);
-      toast.success('Newsletter में सफलतापूर्वक subscribe हो गए! धन्यवाद।');
+      toast.success('Successfully subscribed to newsletter! Thank you.');
       setNewsletterEmail('');
     } catch (error) {
       // Handle network errors gracefully
       if (error.response) {
         // Server responded with error
-        const errorMessage = error.response.data?.message || 'Subscribe करने में समस्या आई। कृपया पुनः प्रयास करें।';
+        const errorMessage = error.response.data?.message || 'Failed to subscribe. Please try again.';
         if (error.response.data?.message === 'Email already subscribed') {
-          toast.error('यह email पहले से ही subscribe है');
+          toast.error('This email is already subscribed');
         } else {
           toast.error(errorMessage);
         }
       } else if (error.request) {
         // Request was made but no response (network error)
-        toast.error('Network error. कृपया अपना internet connection जांचें और पुनः प्रयास करें।');
+        toast.error('Network error. Please check your internet connection and try again.');
       } else {
         // Something else happened
-        toast.error('एक unexpected error आया है। कृपया पुनः प्रयास करें।');
+        toast.error('An unexpected error occurred. Please try again.');
       }
     } finally {
       setIsSubmitting(false);

@@ -58,7 +58,7 @@ const Home = () => {
       description: 'State-of-the-art science and computer labs for practical learning'
     },
     {
-      icon: 'fa-library',
+      icon: 'fa-book-reader',
       title: 'Digital Library',
       description: 'Comprehensive collection of books and online learning resources'
     },
