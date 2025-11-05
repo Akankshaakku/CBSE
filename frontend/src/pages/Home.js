@@ -2,46 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-// Detect mobile devices to optimize animations
-const isMobile = () => {
-  return window.innerWidth <= 768;
-};
-
-// Get optimized animation props based on device
-const getAnimationProps = (isMobileDevice) => {
-  if (isMobileDevice) {
-    return {
-      initial: { opacity: 1 },
-      whileInView: { opacity: 1 },
-      transition: { duration: 0 },
-      viewport: { once: true, margin: '-50px' }
-    };
-  }
-  return {
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
-    viewport: { once: true }
-  };
-};
-
-const getCardAnimationProps = (index, isMobileDevice) => {
-  if (isMobileDevice) {
-    return {
-      initial: { opacity: 1 },
-      whileInView: { opacity: 1 },
-      transition: { duration: 0 },
-      viewport: { once: true, margin: '-50px' }
-    };
-  }
-  return {
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, delay: index * 0.05 },
-    viewport: { once: true, margin: '-100px' }
-  };
-};
-
 const Home = () => {
   // Array of school images for rotating background
   const heroImages = [
@@ -58,18 +18,6 @@ const Home = () => {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedFacility, setSelectedFacility] = useState(null);
-  const [mobileDevice, setMobileDevice] = useState(false);
-
-  // Detect mobile device on mount and resize
-  useEffect(() => {
-    const checkMobile = () => {
-      setMobileDevice(isMobile());
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   // Auto-rotate images every 4 seconds
   useEffect(() => {
@@ -82,7 +30,7 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
-  // Close modal on ESC key press and prevent body scroll when modal is open
+  // Close modal on ESC key press
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape' && selectedFacility) {
@@ -90,37 +38,7 @@ const Home = () => {
       }
     };
     window.addEventListener('keydown', handleEscape);
-    
-    // Prevent body scroll when modal is open
-    if (selectedFacility) {
-      const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
-      // Store scroll position for restoration
-      document.body.setAttribute('data-scroll-y', scrollY.toString());
-    } else {
-      // Restore scroll position
-      const scrollY = document.body.getAttribute('data-scroll-y');
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      document.body.style.overflow = '';
-      document.body.removeAttribute('data-scroll-y');
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY));
-      }
-    }
-    
-    return () => {
-      window.removeEventListener('keydown', handleEscape);
-      // Cleanup: restore body scroll
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      document.body.style.overflow = '';
-    };
+    return () => window.removeEventListener('keydown', handleEscape);
   }, [selectedFacility]);
 
   const features = [
@@ -157,7 +75,7 @@ const Home = () => {
   ];
 
   const highlights = [
-    { number: '500+', label: 'Students Enrolled', icon: null },
+    { number: '500+', label: 'Students Enrolled', icon: 'fa-users' },
     { number: '50+', label: 'Dedicated Faculty', icon: 'fa-chalkboard-user' },
     { number: '20+', label: 'Years of Excellence', icon: 'fa-trophy' },
     { number: '98%', label: 'Pass Rate', icon: 'fa-chart-line' }
@@ -310,11 +228,7 @@ const Home = () => {
               >
                 <div className="stat-card">
                   <div className="stat-icon">
-                    {item.icon ? (
-                      <i className={`fas ${item.icon}`}></i>
-                    ) : (
-                      <span></span>
-                    )}
+                    <i className={`fas ${item.icon}`}></i>
                   </div>
                   <h3 className="stat-number">{item.number}</h3>
                   <p className="stat-label">{item.label}</p>
@@ -515,7 +429,10 @@ const Home = () => {
               <motion.div
                 key={index}
                 className="col-lg-3 col-md-6 col-sm-12"
-                {...getCardAnimationProps(index, mobileDevice)}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
               >
                 <div className="facility-card" onClick={() => setSelectedFacility(facility)} style={{ cursor: 'pointer' }}>
                   <div className="facility-image-wrapper">
