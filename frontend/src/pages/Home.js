@@ -16,8 +16,53 @@ const Home = () => {
     '/image/Photo3.jpg'
   ];
 
+  // Testimonials data
+  const testimonials = [
+    {
+      name: 'Rajesh Kumar',
+      role: 'Parent',
+      text: 'CPPS has transformed my child\'s academic journey. The faculty is exceptional and the facilities are world-class.'
+    },
+    {
+      name: 'Priya Singh',
+      role: 'Parent',
+      text: 'The holistic approach to education here is remarkable. My daughter has grown both academically and personally.'
+    },
+    {
+      name: 'Amit Sharma',
+      role: 'Parent',
+      text: 'Best decision we made for our son\'s education. The school truly cares about each student\'s development.'
+    },
+    {
+      name: 'Sunita Devi',
+      role: 'Parent',
+      text: 'The teachers are very dedicated and supportive. My child has shown tremendous improvement in all subjects.'
+    },
+    {
+      name: 'Vikash Kumar',
+      role: 'Parent',
+      text: 'Excellent infrastructure and modern teaching methods. Highly recommend this school for quality education.'
+    },
+    {
+      name: 'Meera Singh',
+      role: 'Parent',
+      text: 'The school provides a perfect balance of academics and extracurricular activities. Very satisfied!'
+    },
+    {
+      name: 'Ramesh Yadav',
+      role: 'Parent',
+      text: 'CPPS has created a nurturing environment where children can learn and grow. Truly impressed!'
+    },
+    {
+      name: 'Anita Kumari',
+      role: 'Parent',
+      text: 'The management and staff are very responsive. They genuinely care about each student\'s progress.'
+    }
+  ];
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedFacility, setSelectedFacility] = useState(null);
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
   // Auto-rotate images every 4 seconds
   useEffect(() => {
@@ -29,6 +74,19 @@ const Home = () => {
 
     return () => clearInterval(interval);
   }, [heroImages.length]);
+
+  // Auto-rotate testimonials every 3 seconds
+  useEffect(() => {
+    if (testimonials.length === 0) return;
+    
+    const interval = setInterval(() => {
+      setCurrentTestimonialIndex((prevIndex) => 
+        (prevIndex + 1) % testimonials.length
+      );
+    }, 3000); // Change testimonial every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
 
   // Close modal on ESC key press
   useEffect(() => {
@@ -130,34 +188,13 @@ const Home = () => {
     { date: 'Mar 15, 2023', title: 'Class 10 Farewell', desc: 'Celebrating achievements and cherished memories' }
   ];
 
-  const testimonials = [
-    {
-      name: 'Rajesh Kumar',
-      role: 'Parent',
-      text: 'CPPS has transformed my child\'s academic journey. The faculty is exceptional and the facilities are world-class.',
-      image: '/image/User1.png'
-    },
-    {
-      name: 'Priya Singh',
-      role: 'Parent',
-      text: 'The holistic approach to education here is remarkable. My daughter has grown both academically and personally.',
-      image: '/image/User2.png'
-    },
-    {
-      name: 'Amit Sharma',
-      role: 'Parent',
-      text: 'Best decision we made for our son\'s education. The school truly cares about each student\'s development.',
-      image: '/image/User1.png'
-    }
-  ];
-
   return (
     <div className="home">
       {/* Hero Section with Background Image */}
       <section 
         className="hero-section-new"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(26, 75, 132, 0.9) 0%, rgba(44, 62, 80, 0.9) 50%, rgba(52, 152, 219, 0.8) 100%), url(${heroImages[currentImageIndex]})`,
+          backgroundImage: `linear-gradient(135deg, rgba(26, 75, 132, 0.4) 0%, rgba(44, 62, 80, 0.4) 50%, rgba(52, 152, 219, 0.3) 100%), url(${heroImages[currentImageIndex]})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           transition: 'background-image 1s ease-in-out'
@@ -174,7 +211,7 @@ const Home = () => {
                 className="hero-text-content"
               >
                 <h1 className="hero-title-new">
-                  Excellence in Education, <span className="gradient-text">Character Building</span>
+                  Excellence in Education, <span style={{ color: 'white' }}>Character Building</span>
                 </h1>
                 <p className="hero-subtitle-new">
                   At Children's Paradise Public School, we are committed to nurturing well-rounded individuals
@@ -470,7 +507,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section with Rotation */}
       <section className="testimonials-section">
         <div className="container">
           <motion.div
@@ -486,30 +523,45 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <div className="row">
-            {testimonials.map((testimonial, index) => (
+          <div className="testimonials-carousel-wrapper">
+            <AnimatePresence mode="wait">
               <motion.div
-                key={index}
-                className="col-lg-4 col-md-6 mb-4"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                key={currentTestimonialIndex}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.5 }}
+                className="testimonial-carousel-item"
               >
-                <div className="testimonial-card">
-                  <p className="testimonial-text">"{testimonial.text}"</p>
+                <div className="testimonial-card featured">
+                  <div className="testimonial-quote-icon">
+                    <i className="fas fa-quote-left"></i>
+                  </div>
+                  <p className="testimonial-text">"{testimonials[currentTestimonialIndex].text}"</p>
                   <div className="testimonial-author">
                     <div className="author-avatar">
                       <i className="fas fa-user-circle"></i>
                     </div>
                     <div className="author-info">
-                      <h5>{testimonial.name}</h5>
-                      <p>{testimonial.role}</p>
+                      <h5>{testimonials[currentTestimonialIndex].name}</h5>
+                      <p>{testimonials[currentTestimonialIndex].role}</p>
                     </div>
                   </div>
                 </div>
               </motion.div>
-            ))}
+            </AnimatePresence>
+            
+            {/* Testimonial Indicators */}
+            <div className="testimonial-indicators">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  className={`testimonial-indicator ${index === currentTestimonialIndex ? 'active' : ''}`}
+                  onClick={() => setCurrentTestimonialIndex(index)}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>

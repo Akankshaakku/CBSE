@@ -3,6 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Disclosure = () => {
   const [expandedItem, setExpandedItem] = useState(null);
+  const [isSafari, setIsSafari] = useState(false);
+  const [pdfErrors, setPdfErrors] = useState({});
+  const [pdfLoading, setPdfLoading] = useState({});
+
+  // Detect Safari browser
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isSafariBrowser = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) || 
+                           /iphone|ipad|ipod/.test(userAgent);
+    setIsSafari(isSafariBrowser);
+  }, []);
 
   // Close expanded item on ESC key press
   useEffect(() => {
@@ -13,6 +24,39 @@ const Disclosure = () => {
     };
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
+  }, [expandedItem]);
+
+  // Handle PDF load errors
+  const handlePdfError = (itemId) => {
+    setPdfErrors(prev => ({ ...prev, [itemId]: true }));
+    setPdfLoading(prev => ({ ...prev, [itemId]: false }));
+  };
+
+  // Handle PDF load success
+  const handlePdfLoad = (itemId) => {
+    setPdfLoading(prev => ({ ...prev, [itemId]: false }));
+    // Clear any previous errors
+    setPdfErrors(prev => {
+      const newErrors = { ...prev };
+      delete newErrors[itemId];
+      return newErrors;
+    });
+  };
+
+  // Set loading state when expanding
+  useEffect(() => {
+    if (expandedItem) {
+      setPdfLoading(prev => ({ ...prev, [expandedItem]: true }));
+      // Auto-clear loading after a timeout (fallback)
+      const timeout = setTimeout(() => {
+        setPdfLoading(prev => {
+          const newLoading = { ...prev };
+          delete newLoading[expandedItem];
+          return newLoading;
+        });
+      }, 5000);
+      return () => clearTimeout(timeout);
+    }
   }, [expandedItem]);
 
   const disclosureItems = [
@@ -141,19 +185,113 @@ const Disclosure = () => {
                         transition={{ duration: 0.3 }}
                         className="disclosure-body"
                       >
-                        <div style={{ width: '100%', height: '600px', marginTop: '15px' }}>
-                          <iframe
-                            src={`${item.file}#toolbar=0&navpanes=0&scrollbar=1`}
-                            style={{
-                              width: '100%',
-                              height: '100%',
-                              border: '1px solid #ddd',
-                              borderRadius: '8px'
-                            }}
-                            title={item.title}
-                          >
-                            <p>Your browser does not support PDFs. <a href={item.file} target="_blank" rel="noopener noreferrer">View PDF</a></p>
-                          </iframe>
+                        <div className="pdf-viewer-container">
+                          {pdfLoading[item.id] && !pdfErrors[item.id] && (
+                            <div className="pdf-loading">
+                              <div className="spinner-border text-primary" role="status">
+                                <span className="visually-hidden">Loading PDF...</span>
+                              </div>
+                              <p className="mt-3 text-muted">Loading PDF document...</p>
+                            </div>
+                          )}
+                          {pdfErrors[item.id] ? (
+                            <div className="pdf-error-fallback">
+                              <div className="pdf-error-message">
+                                <i className="fas fa-exclamation-triangle text-warning mb-3" style={{ fontSize: '3rem' }}></i>
+                                <h5>Unable to display PDF in browser</h5>
+                                <p className="text-muted mb-3">Please download or open in a new window</p>
+                                <div className="pdf-action-buttons">
+                                  <a 
+                                    href={item.file} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="btn btn-primary me-2"
+                                    download
+                                  >
+                                    <i className="fas fa-download me-2"></i>Download PDF
+                                  </a>
+                                  <a 
+                                    href={item.file} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="btn btn-outline-primary"
+                                  >
+                                    <i className="fas fa-external-link-alt me-2"></i>Open in New Window
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          ) : isSafari ? (
+                            // Safari-compatible PDF viewer using object tag
+                            <div className="pdf-viewer-wrapper" style={{ display: pdfLoading[item.id] ? 'none' : 'block' }}>
+                              <object
+                                data={`${item.file}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
+                                type="application/pdf"
+                                className="pdf-viewer-object"
+                                aria-label={item.title}
+                                onLoad={() => handlePdfLoad(item.id)}
+                                onError={() => handlePdfError(item.id)}
+                              >
+                                <div className="pdf-fallback">
+                                  <p className="mb-3">Your browser does not support inline PDF viewing.</p>
+                                  <div className="pdf-action-buttons">
+                                    <a 
+                                      href={item.file} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="btn btn-primary me-2"
+                                      download
+                                    >
+                                      <i className="fas fa-download me-2"></i>Download PDF
+                                    </a>
+                                    <a 
+                                      href={item.file} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="btn btn-outline-primary"
+                                    >
+                                      <i className="fas fa-external-link-alt me-2"></i>Open in New Window
+                                    </a>
+                                  </div>
+                                </div>
+                              </object>
+                            </div>
+                          ) : (
+                            // Standard iframe for other browsers
+                            <div className="pdf-viewer-wrapper" style={{ display: pdfLoading[item.id] ? 'none' : 'block' }}>
+                              <iframe
+                                src={`${item.file}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
+                                className="pdf-viewer-iframe"
+                                title={item.title}
+                                onLoad={() => handlePdfLoad(item.id)}
+                                onError={() => handlePdfError(item.id)}
+                                allow="fullscreen"
+                              >
+                                <div className="pdf-fallback">
+                                  <p className="mb-3">Your browser does not support PDFs.</p>
+                                  <div className="pdf-action-buttons">
+                                    <a 
+                                      href={item.file} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="btn btn-primary me-2"
+                                      download
+                                    >
+                                      <i className="fas fa-download me-2"></i>Download PDF
+                                    </a>
+                                    <a 
+                                      href={item.file} 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      className="btn btn-outline-primary"
+                                    >
+                                      <i className="fas fa-external-link-alt me-2"></i>Open in New Window
+                                    </a>
+                                  </div>
+                                </div>
+                              </iframe>
+                            </div>
+                          )}
                         </div>
                       </motion.div>
                     )}
