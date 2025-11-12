@@ -3404,7 +3404,108 @@ p {
   color: rgba(255, 255, 255, 0.6);
 }
 
+/* Developer Section Styles */
+.footer-developer-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.developer-info-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.developer-text {
+  text-align: right;
+}
+
+.developed-by-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
+.developer-name {
+  margin: 2px 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.developer-title {
+  margin: 2px 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.developer-college {
+  margin: 2px 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.developer-image-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.developer-image-wrapper:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.developer-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.developer-image-wrapper:hover .developer-profile-image {
+  transform: scale(1.1);
+}
+
+.developer-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
 @media (max-width: 768px) {
+  .footer-developer-section {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .developer-info-wrapper {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .developer-text {
+    text-align: center;
+  }
+
   .footer-bottom-links {
     justify-content: flex-start;
     margin-top: 1rem;
