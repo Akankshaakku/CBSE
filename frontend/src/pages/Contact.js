@@ -1,9 +1,66 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import { apiService } from '../services/api';
 
 const Contact = () => {
+  // Update document title and meta tags for SEO
+  useEffect(() => {
+    document.title = "Contact Us - CPPS | Children's Paradise Public School, Muzaffarpur";
+    
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Contact Children\'s Paradise Public School (CPPS) in Muzaffarpur, Bihar. Phone: +91 9430810464, +91 9798209332. Email: cppschoolmuz@gmail.com. Address: Jiyalal Roy Chowk, Shekhpur, Ahiyapur, Muzaffarpur, Bihar.');
+    }
+    
+    // Add structured data for contact information
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Children's Paradise Public School",
+      "alternateName": "CPPS",
+      "url": window.location.origin,
+      "logo": `${window.location.origin}/image/faviconLogo.png`,
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-9430810464",
+        "contactType": "Customer Service",
+        "areaServed": "IN",
+        "availableLanguage": ["English", "Hindi"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jiyalal Roy Chowk, Shekhpur, Ahiyapur",
+        "addressLocality": "Muzaffarpur",
+        "addressRegion": "Bihar",
+        "addressCountry": "IN"
+      },
+      "email": "cppschoolmuz@gmail.com",
+      "telephone": "+91-9430810464"
+    };
+    
+    // Remove existing structured data script if any
+    const existingScript = document.getElementById('contact-structured-data');
+    if (existingScript) {
+      existingScript.remove();
+    }
+    
+    // Add new structured data
+    const script = document.createElement('script');
+    script.id = 'contact-structured-data';
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+    
+    return () => {
+      // Cleanup on unmount
+      const scriptToRemove = document.getElementById('contact-structured-data');
+      if (scriptToRemove) {
+        scriptToRemove.remove();
+      }
+    };
+  }, []);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -78,6 +135,108 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Contact Details Section - Prominent for SEO */}
+      <section className="contact-details-section py-5" style={{ backgroundColor: '#f8f9fa' }}>
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-5"
+          >
+            <h2 className="mb-3">Contact Information</h2>
+            <p className="lead">Get in touch with Children's Paradise Public School</p>
+          </motion.div>
+          
+          <div className="row g-4">
+            <motion.div
+              className="col-lg-3 col-md-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="contact-card h-100 text-center p-4" style={{ backgroundColor: '#fff', borderRadius: '10px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
+                <div className="contact-icon mb-3" style={{ fontSize: '2.5rem', color: '#1a4b84' }}>
+                  <i className="fas fa-map-marker-alt"></i>
+                </div>
+                <h5 className="mb-3">Address</h5>
+                <p className="mb-0" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                  <span itemProp="streetAddress">Jiyalal Roy Chowk, Shekhpur, Ahiyapur</span><br/>
+                  <span itemProp="addressLocality">Muzaffarpur</span>, <span itemProp="addressRegion">Bihar</span><br/>
+                  <span itemProp="addressCountry">India</span>
+                </p>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              className="col-lg-3 col-md-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="contact-card h-100 text-center p-4" style={{ backgroundColor: '#fff', borderRadius: '10px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
+                <div className="contact-icon mb-3" style={{ fontSize: '2.5rem', color: '#1a4b84' }}>
+                  <i className="fas fa-phone"></i>
+                </div>
+                <h5 className="mb-3">Phone Numbers</h5>
+                <p className="mb-2">
+                  <a href="tel:+919430810464" itemProp="telephone" style={{ color: '#1a4b84', textDecoration: 'none' }}>
+                    <strong>+91 9430810464</strong>
+                  </a>
+                </p>
+                <p className="mb-0">
+                  <a href="tel:+919798209332" itemProp="telephone" style={{ color: '#1a4b84', textDecoration: 'none' }}>
+                    <strong>+91 9798209332</strong>
+                  </a>
+                </p>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              className="col-lg-3 col-md-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <div className="contact-card h-100 text-center p-4" style={{ backgroundColor: '#fff', borderRadius: '10px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
+                <div className="contact-icon mb-3" style={{ fontSize: '2.5rem', color: '#1a4b84' }}>
+                  <i className="fas fa-envelope"></i>
+                </div>
+                <h5 className="mb-3">Email</h5>
+                <p className="mb-0">
+                  <a href="mailto:cppschoolmuz@gmail.com" itemProp="email" style={{ color: '#1a4b84', textDecoration: 'none', wordBreak: 'break-word' }}>
+                    <strong>cppschoolmuz@gmail.com</strong>
+                  </a>
+                </p>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              className="col-lg-3 col-md-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <div className="contact-card h-100 text-center p-4" style={{ backgroundColor: '#fff', borderRadius: '10px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
+                <div className="contact-icon mb-3" style={{ fontSize: '2.5rem', color: '#1a4b84' }}>
+                  <i className="fas fa-clock"></i>
+                </div>
+                <h5 className="mb-3">Office Hours</h5>
+                <p className="mb-0">
+                  <strong>Monday - Friday</strong><br/>
+                  9:00 AM - 6:00 PM
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section className="contact-section">
         <div className="container py-5">
@@ -91,25 +250,31 @@ const Contact = () => {
             >
               <div className="contact-info">
                 <h4>Get in Touch</h4>
+                <p className="mb-4">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
                 <div className="contact-item mb-3">
                   <i className="fas fa-map-marker-alt text-primary me-2"></i>
                   <div>
                     <strong>Address</strong>
-                    <p>Jiyalal Roy Chowk, Shekhpur, Ahiyapur, Akharaghat, Muzaffarpur, Bihar</p>
+                    <p>Jiyalal Roy Chowk, Shekhpur, Ahiyapur, Muzaffarpur, Bihar</p>
                   </div>
                 </div>
                 <div className="contact-item mb-3">
                   <i className="fas fa-phone text-primary me-2"></i>
                   <div>
                     <strong>Phone</strong>
-                    <p>+91 9430810464<br/>+91 9798209332</p>
+                    <p>
+                      <a href="tel:+919430810464" style={{ color: 'inherit', textDecoration: 'none' }}>+91 9430810464</a><br/>
+                      <a href="tel:+919798209332" style={{ color: 'inherit', textDecoration: 'none' }}>+91 9798209332</a>
+                    </p>
                   </div>
                 </div>
                 <div className="contact-item mb-3">
                   <i className="fas fa-envelope text-primary me-2"></i>
                   <div>
                     <strong>Email</strong>
-                    <p>cppschoolmuz@gmail.com</p>
+                    <p>
+                      <a href="mailto:cppschoolmuz@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>cppschoolmuz@gmail.com</a>
+                    </p>
                   </div>
                 </div>
                 <div className="contact-item mb-3">
