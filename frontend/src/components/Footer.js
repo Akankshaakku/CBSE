@@ -207,6 +207,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="col-md-6 col-12">
+            {/* Developer Information Section */}
             <div className="footer-developer-section">
               <div className="developer-info-wrapper">
                 <div className="developer-text">
