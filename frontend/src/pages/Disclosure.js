@@ -28,12 +28,14 @@ const Disclosure = () => {
 
   // Handle PDF load errors
   const handlePdfError = (itemId) => {
+    console.error(`PDF load error for item ${itemId}`);
     setPdfErrors(prev => ({ ...prev, [itemId]: true }));
     setPdfLoading(prev => ({ ...prev, [itemId]: false }));
   };
 
   // Handle PDF load success
   const handlePdfLoad = (itemId) => {
+    console.log(`PDF loaded successfully for item ${itemId}`);
     setPdfLoading(prev => ({ ...prev, [itemId]: false }));
     // Clear any previous errors
     setPdfErrors(prev => {
@@ -41,6 +43,12 @@ const Disclosure = () => {
       delete newErrors[itemId];
       return newErrors;
     });
+  };
+  
+  // Get properly encoded file URL
+  const getFileUrl = (filePath) => {
+    // Replace spaces with %20 for proper URL encoding
+    return filePath.replace(/\s/g, '%20');
   };
 
   // Set loading state when expanding
@@ -208,7 +216,7 @@ const Disclosure = () => {
                                 <p className="text-muted mb-3">Please download or open in a new window</p>
                                 <div className="pdf-action-buttons">
                                   <a 
-                                    href={encodeURI(item.file)} 
+                                    href={getFileUrl(item.file)} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                     className="btn btn-primary me-2"
@@ -217,7 +225,7 @@ const Disclosure = () => {
                                     <i className="fas fa-download me-2"></i>Download PDF
                                   </a>
                                   <a 
-                                    href={encodeURI(item.file)} 
+                                    href={getFileUrl(item.file)} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                     className="btn btn-outline-primary"
@@ -231,7 +239,7 @@ const Disclosure = () => {
                             // Safari-compatible PDF viewer using object tag
                             <div className="pdf-viewer-wrapper" style={{ display: pdfLoading[item.id] ? 'none' : 'block' }}>
                               <object
-                                data={`${encodeURI(item.file)}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
+                                data={`${getFileUrl(item.file)}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
                                 type="application/pdf"
                                 className="pdf-viewer-object"
                                 aria-label={item.title}
@@ -242,7 +250,7 @@ const Disclosure = () => {
                                   <p className="mb-3">Your browser does not support inline PDF viewing.</p>
                                   <div className="pdf-action-buttons">
                                     <a 
-                                      href={item.file} 
+                                      href={getFileUrl(item.file)} 
                                       target="_blank" 
                                       rel="noopener noreferrer"
                                       className="btn btn-primary me-2"
@@ -251,7 +259,7 @@ const Disclosure = () => {
                                       <i className="fas fa-download me-2"></i>Download PDF
                                     </a>
                                     <a 
-                                      href={item.file} 
+                                      href={getFileUrl(item.file)} 
                                       target="_blank" 
                                       rel="noopener noreferrer"
                                       className="btn btn-outline-primary"
@@ -266,7 +274,7 @@ const Disclosure = () => {
                             // Standard iframe for other browsers
                             <div className="pdf-viewer-wrapper" style={{ display: pdfLoading[item.id] ? 'none' : 'block' }}>
                               <iframe
-                                src={`${encodeURI(item.file)}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
+                                src={`${getFileUrl(item.file)}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
                                 className="pdf-viewer-iframe"
                                 title={item.title}
                                 onLoad={() => handlePdfLoad(item.id)}
@@ -277,7 +285,7 @@ const Disclosure = () => {
                                   <p className="mb-3">Your browser does not support PDFs.</p>
                                   <div className="pdf-action-buttons">
                                     <a 
-                                      href={item.file} 
+                                      href={getFileUrl(item.file)} 
                                       target="_blank" 
                                       rel="noopener noreferrer"
                                       className="btn btn-primary me-2"
@@ -286,7 +294,7 @@ const Disclosure = () => {
                                       <i className="fas fa-download me-2"></i>Download PDF
                                     </a>
                                     <a 
-                                      href={item.file} 
+                                      href={getFileUrl(item.file)} 
                                       target="_blank" 
                                       rel="noopener noreferrer"
                                       className="btn btn-outline-primary"
