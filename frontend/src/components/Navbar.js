@@ -91,7 +91,15 @@ const Navbar = () => {
       <nav className={`navbar-new ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
         <Link className="navbar-brand-new" to="/">
-          <img src="/image/logo.jpg" alt="CPPS Logo" className="navbar-logo" />
+          <img 
+            src="/image/logo.jpg" 
+            alt="CPPS Logo" 
+            className="navbar-logo" 
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = '/image/faviconLogo.png';
+            }}
+          />
           <span className="brand-text">CPPS</span>
         </Link>
 
