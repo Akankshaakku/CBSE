@@ -74,7 +74,7 @@ const Disclosure = () => {
       id: 1,
       title: 'Details of Teacher',
       description: 'Complete details and information about teaching staff',
-      file: '/image/Certificate/Teacher.pdf'
+      file: '/image/Certificate/DETAILS OF TEACHER.pdf'
     },
     {
       id: 2,
