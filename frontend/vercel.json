@@ -4,7 +4,26 @@
   "devCommand": "npm start",
   "installCommand": "npm install",
   "framework": "create-react-app",
+  "headers": [
+    {
+      "source": "/image/Certificate/(.*)\\.pdf",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/image/Certificate/(.*)",
+      "destination": "/image/Certificate/$1"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"

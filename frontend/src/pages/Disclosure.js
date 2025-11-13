@@ -47,8 +47,10 @@ const Disclosure = () => {
   
   // Get properly encoded file URL
   const getFileUrl = (filePath) => {
-    // Replace spaces with %20 for proper URL encoding
-    return filePath.replace(/\s/g, '%20');
+    // Use encodeURIComponent for proper URL encoding, but keep the path structure
+    // Split the path and encode each part separately to preserve slashes
+    const parts = filePath.split('/');
+    return parts.map(part => encodeURIComponent(part)).join('/');
   };
 
   // Set loading state when expanding
