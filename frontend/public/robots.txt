@@ -7,6 +7,8 @@ Allow: /gallery
 Allow: /faculty
 Allow: /disclosure
 Allow: /blog
+Allow: /favicon.ico
+Allow: /image/faviconLogo.png
 
 # Sitemap (if you have one, uncomment and add your sitemap URL)
 # Sitemap: https://cppsschool.com/sitemap.xml
