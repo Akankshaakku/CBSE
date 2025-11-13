@@ -62,48 +62,54 @@ const Disclosure = () => {
   const disclosureItems = [
     {
       id: 1,
+      title: 'Details of Teacher',
+      description: 'Complete details and information about teaching staff',
+      file: '/image/Certificate/DETAILS OF TEACHER.pdf'
+    },
+    {
+      id: 2,
       title: 'Building Certificate',
       description: 'Official building safety and compliance certificate',
       file: '/image/Certificate/Building Certificate.pdf'
     },
     {
-      id: 2,
+      id: 3,
       title: 'Fire Safety Certificate',
       description: 'Fire safety compliance and emergency procedures certification',
       file: '/image/Certificate/Fire safety.pdf'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Land Certificate',
       description: 'Land ownership and property documentation',
       file: '/image/Certificate/Land Certificate.pdf'
     },
     {
-      id: 4,
+      id: 5,
       title: 'NOC (No Objection Certificate)',
       description: 'No Objection Certificate from relevant authorities',
       file: '/image/Certificate/NOC.pdf'
     },
     {
-      id: 5,
+      id: 6,
       title: 'Recognition Certificate',
       description: 'School recognition and affiliation certificate',
       file: '/image/Certificate/Recognition certificate.pdf'
     },
     {
-      id: 6,
+      id: 7,
       title: 'Drinking Water Safety Certificate',
       description: 'Water quality and safety certification',
       file: '/image/Certificate/Drinking water safety certificate.pdf'
     },
     {
-      id: 7,
+      id: 8,
       title: 'Teacher Qualifications',
       description: 'Faculty qualifications and certifications',
       file: '/image/Certificate/Teacher.pdf'
     },
     {
-      id: 8,
+      id: 9,
       title: 'Trust Deed',
       description: 'Trust deed and organizational documentation',
       file: '/image/Certificate/Trust Deed_compressed.pdf'
