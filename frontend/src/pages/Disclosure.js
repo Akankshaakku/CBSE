@@ -208,7 +208,7 @@ const Disclosure = () => {
                                 <p className="text-muted mb-3">Please download or open in a new window</p>
                                 <div className="pdf-action-buttons">
                                   <a 
-                                    href={item.file} 
+                                    href={encodeURI(item.file)} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                     className="btn btn-primary me-2"
@@ -217,7 +217,7 @@ const Disclosure = () => {
                                     <i className="fas fa-download me-2"></i>Download PDF
                                   </a>
                                   <a 
-                                    href={item.file} 
+                                    href={encodeURI(item.file)} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                     className="btn btn-outline-primary"
@@ -231,7 +231,7 @@ const Disclosure = () => {
                             // Safari-compatible PDF viewer using object tag
                             <div className="pdf-viewer-wrapper" style={{ display: pdfLoading[item.id] ? 'none' : 'block' }}>
                               <object
-                                data={`${item.file}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
+                                data={`${encodeURI(item.file)}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
                                 type="application/pdf"
                                 className="pdf-viewer-object"
                                 aria-label={item.title}
@@ -266,7 +266,7 @@ const Disclosure = () => {
                             // Standard iframe for other browsers
                             <div className="pdf-viewer-wrapper" style={{ display: pdfLoading[item.id] ? 'none' : 'block' }}>
                               <iframe
-                                src={`${item.file}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
+                                src={`${encodeURI(item.file)}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
                                 className="pdf-viewer-iframe"
                                 title={item.title}
                                 onLoad={() => handlePdfLoad(item.id)}
