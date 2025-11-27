@@ -33,15 +33,6 @@ const Blog = () => {
       excerpt: 'Students showcase innovative science projects and creative solutions',
       content: 'The annual science exhibition was a platform for our students to demonstrate their scientific knowledge and creativity. Various projects were displayed covering topics from physics, chemistry, and biology. Students from classes 6 to 10 participated enthusiastically, presenting projects on renewable energy, environmental conservation, and technological innovations. The exhibition featured working models of solar-powered devices, water purification systems, and innovative solutions to everyday problems. Judges from local universities and industry experts evaluated the projects based on innovation, scientific accuracy, presentation, and practical application. Several projects received special recognition for their originality and potential real-world impact. The event also included interactive sessions where students explained their projects to visitors, enhancing their communication skills. Teachers guided students throughout the process, emphasizing the importance of scientific inquiry and critical thinking. The exhibition concluded with an award ceremony where winners were felicitated. This event not only promotes scientific temper among students but also encourages them to think creatively and apply their knowledge to solve real-world challenges.',
       author: 'Science Department'
-    },
-    {
-      id: 3,
-      title: 'Farewell Class 10: Wishing Bright Futures',
-      date: 'Mar 15, 2023',
-      image: '/image/SE3.png',
-      excerpt: 'Celebrating achievements and cherished memories of our graduating class',
-      content: 'We bid farewell to our Class 10 students with a memorable event filled with emotions, celebrations, and best wishes for their bright future ahead. The farewell ceremony was organized in the school auditorium with full participation from teachers, students, and parents. The program began with a welcome address by the Principal, followed by speeches from teachers who shared memorable moments and life lessons with the outgoing students. Students performed emotional farewell songs and presented skits depicting their school life experiences. The highlight of the event was the distribution of certificates and mementos to mark the completion of their secondary education. Parents expressed their gratitude to the faculty for nurturing their children over the years. The outgoing students shared their future aspirations and thanked their teachers for the guidance and support. The ceremony concluded with a group photograph and a promise to stay connected with the school. This farewell event symbolizes the transition from school life to higher education and professional careers, while cherishing the bonds formed during their time at Children\'s Paradise Public School.',
-      author: 'School Administration'
     }
   ];
 

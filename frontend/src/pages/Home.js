@@ -67,7 +67,7 @@ const Home = () => {
   // Auto-rotate images every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
+      setCurrentImageIndex((prevIndex) =>
         (prevIndex + 1) % heroImages.length
       );
     }, 4000); // Change image every 4 seconds
@@ -78,9 +78,9 @@ const Home = () => {
   // Auto-rotate testimonials every 3 seconds
   useEffect(() => {
     if (testimonials.length === 0) return;
-    
+
     const interval = setInterval(() => {
-      setCurrentTestimonialIndex((prevIndex) => 
+      setCurrentTestimonialIndex((prevIndex) =>
         (prevIndex + 1) % testimonials.length
       );
     }, 3000); // Change testimonial every 3 seconds
@@ -185,13 +185,12 @@ const Home = () => {
   const events = [
     { date: 'Mar 17, 2024', title: 'Grand Annual Function', desc: 'Chief Guest: Suresh Kumar Sharma, Former MLA' },
     { date: 'Feb 28, 2024', title: 'Science Exhibition', desc: 'Students showcase innovative science projects' },
-    { date: 'Mar 15, 2023', title: 'Class 10 Farewell', desc: 'Celebrating achievements and cherished memories' }
   ];
 
   return (
     <div className="home">
       {/* Hero Section with Background Image */}
-      <section 
+      <section
         className="hero-section-new"
         style={{
           backgroundImage: `linear-gradient(135deg, rgba(26, 75, 132, 0.4) 0%, rgba(44, 62, 80, 0.4) 50%, rgba(52, 152, 219, 0.3) 100%), url(${heroImages[currentImageIndex]})`,
@@ -487,10 +486,10 @@ const Home = () => {
                       }}
                     />
                     <div className="facility-icon-fallback" style={{ display: 'none' }}>
-                      <i className={`fas ${facility.title === 'Computer Lab' ? 'fa-laptop' : 
-                                      facility.title === 'Library' ? 'fa-book' : 
-                                      facility.title.includes('Lab') ? 'fa-flask' : 
-                                      'fa-building'}`}></i>
+                      <i className={`fas ${facility.title === 'Computer Lab' ? 'fa-laptop' :
+                        facility.title === 'Library' ? 'fa-book' :
+                          facility.title.includes('Lab') ? 'fa-flask' :
+                            'fa-building'}`}></i>
                     </div>
                   </div>
                   <div className="facility-card-content">
@@ -550,7 +549,7 @@ const Home = () => {
                 </div>
               </motion.div>
             </AnimatePresence>
-            
+
             {/* Testimonial Indicators */}
             <div className="testimonial-indicators">
               {testimonials.map((_, index) => (

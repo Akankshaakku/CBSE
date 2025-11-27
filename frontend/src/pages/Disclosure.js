@@ -336,7 +336,7 @@ const Disclosure = () => {
                   <li><strong>School Name:</strong> Children's Paradise Public School</li>
                   <li><strong>Location:</strong> Muzaffarpur, Bihar</li>
                   <li><strong>Affiliation:</strong> CBSE (In Progress)</li>
-                  <li><strong>Classes:</strong> Nursery to Class 12</li>
+                  <li><strong>Classes:</strong> Nursery to 8th</li>
                   <li><strong>Established:</strong> 2010</li>
                 </ul>
               </div>

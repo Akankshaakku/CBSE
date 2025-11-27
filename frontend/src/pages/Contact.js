@@ -7,13 +7,13 @@ const Contact = () => {
   // Update document title and meta tags for SEO
   useEffect(() => {
     document.title = "Contact Us - CPPS | Children's Paradise Public School, Muzaffarpur";
-    
+
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Contact Children\'s Paradise Public School (CPPS) in Muzaffarpur, Bihar. Phone: +91 9430810464, +91 9798209332. Email: cppschoolmuz@gmail.com. Address: Jiyalal Roy Chowk, Shekhpur, Ahiyapur, Muzaffarpur, Bihar.');
     }
-    
+
     // Add structured data for contact information
     const structuredData = {
       "@context": "https://schema.org",
@@ -39,20 +39,20 @@ const Contact = () => {
       "email": "cppschoolmuz@gmail.com",
       "telephone": "+91-9430810464"
     };
-    
+
     // Remove existing structured data script if any
     const existingScript = document.getElementById('contact-structured-data');
     if (existingScript) {
       existingScript.remove();
     }
-    
+
     // Add new structured data
     const script = document.createElement('script');
     script.id = 'contact-structured-data';
     script.type = 'application/ld+json';
     script.text = JSON.stringify(structuredData);
     document.head.appendChild(script);
-    
+
     return () => {
       // Cleanup on unmount
       const scriptToRemove = document.getElementById('contact-structured-data');
@@ -79,7 +79,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
       toast.error('Please fill in all required fields');
@@ -148,7 +148,7 @@ const Contact = () => {
             <h2 className="mb-3">Contact Information</h2>
             <p className="lead">Get in touch with Children's Paradise Public School</p>
           </motion.div>
-          
+
           <div className="row g-4">
             <motion.div
               className="col-lg-3 col-md-6"
@@ -163,13 +163,13 @@ const Contact = () => {
                 </div>
                 <h5 className="mb-3">Address</h5>
                 <p className="mb-0" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                  <span itemProp="streetAddress">Jiyalal Roy Chowk, Shekhpur, Ahiyapur</span><br/>
-                  <span itemProp="addressLocality">Muzaffarpur</span>, <span itemProp="addressRegion">Bihar</span><br/>
+                  <span itemProp="streetAddress">Jiyalal Roy Chowk, Shekhpur, Ahiyapur</span><br />
+                  <span itemProp="addressLocality">Muzaffarpur</span>, <span itemProp="addressRegion">Bihar</span><br />
                   <span itemProp="addressCountry">India</span>
                 </p>
               </div>
             </motion.div>
-            
+
             <motion.div
               className="col-lg-3 col-md-6"
               initial={{ opacity: 0, y: 20 }}
@@ -194,7 +194,7 @@ const Contact = () => {
                 </p>
               </div>
             </motion.div>
-            
+
             <motion.div
               className="col-lg-3 col-md-6"
               initial={{ opacity: 0, y: 20 }}
@@ -214,7 +214,7 @@ const Contact = () => {
                 </p>
               </div>
             </motion.div>
-            
+
             <motion.div
               className="col-lg-3 col-md-6"
               initial={{ opacity: 0, y: 20 }}
@@ -228,7 +228,7 @@ const Contact = () => {
                 </div>
                 <h5 className="mb-3">Office Hours</h5>
                 <p className="mb-0">
-                  <strong>Monday - Friday</strong><br/>
+                  <strong>Monday - Friday</strong><br />
                   9:00 AM - 6:00 PM
                 </p>
               </div>
@@ -248,40 +248,57 @@ const Contact = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="contact-info">
-                <h4>Get in Touch</h4>
-                <p className="mb-4">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
-                <div className="contact-item mb-3">
-                  <i className="fas fa-map-marker-alt text-primary me-2"></i>
-                  <div>
-                    <strong>Address</strong>
-                    <p>Jiyalal Roy Chowk, Shekhpur, Ahiyapur, Muzaffarpur, Bihar</p>
-                  </div>
+              <div className="pe-lg-4">
+                <div className="mb-5">
+                  <h3 className="mb-3" style={{ color: '#1a4b84' }}>Get in Touch</h3>
+                  <p className="text-muted">
+                    Have questions regarding admissions, academics, or any other query?
+                    We'd love to hear from you. Fill out the form or reach out to us using the contact details above.
+                  </p>
                 </div>
-                <div className="contact-item mb-3">
-                  <i className="fas fa-phone text-primary me-2"></i>
-                  <div>
-                    <strong>Phone</strong>
-                    <p>
-                      <a href="tel:+919430810464" style={{ color: 'inherit', textDecoration: 'none' }}>+91 9430810464</a><br/>
-                      <a href="tel:+919798209332" style={{ color: 'inherit', textDecoration: 'none' }}>+91 9798209332</a>
-                    </p>
-                  </div>
-                </div>
-                <div className="contact-item mb-3">
-                  <i className="fas fa-envelope text-primary me-2"></i>
-                  <div>
-                    <strong>Email</strong>
-                    <p>
-                      <a href="mailto:cppschoolmuz@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>cppschoolmuz@gmail.com</a>
-                    </p>
-                  </div>
-                </div>
-                <div className="contact-item mb-3">
-                  <i className="fas fa-clock text-primary me-2"></i>
-                  <div>
-                    <strong>Office Hours</strong>
-                    <p>9:00 AM - 6:00 PM (Monday to Friday)</p>
+
+                <div className="card shadow-sm border-0" style={{ backgroundColor: '#f8f9fa' }}>
+                  <div className="card-body p-4">
+                    <h4 className="card-title mb-4" style={{ color: '#1a4b84', borderBottom: '2px solid #e9ecef', paddingBottom: '10px' }}>
+                      School Information
+                    </h4>
+                    <ul className="list-unstyled mb-0">
+                      <li className="mb-3 d-flex align-items-start">
+                        <i className="fas fa-graduation-cap text-primary mt-1 me-3" style={{ width: '20px' }}></i>
+                        <div>
+                          <strong className="d-block text-dark">School Name</strong>
+                          <span className="text-muted">Children's Paradise Public School</span>
+                        </div>
+                      </li>
+                      <li className="mb-3 d-flex align-items-start">
+                        <i className="fas fa-map-marked-alt text-primary mt-1 me-3" style={{ width: '20px' }}></i>
+                        <div>
+                          <strong className="d-block text-dark">Location</strong>
+                          <span className="text-muted">Muzaffarpur, Bihar</span>
+                        </div>
+                      </li>
+                      <li className="mb-3 d-flex align-items-start">
+                        <i className="fas fa-certificate text-primary mt-1 me-3" style={{ width: '20px' }}></i>
+                        <div>
+                          <strong className="d-block text-dark">Affiliation</strong>
+                          <span className="text-muted">CBSE (In Progress)</span>
+                        </div>
+                      </li>
+                      <li className="mb-3 d-flex align-items-start">
+                        <i className="fas fa-chalkboard-teacher text-primary mt-1 me-3" style={{ width: '20px' }}></i>
+                        <div>
+                          <strong className="d-block text-dark">Classes</strong>
+                          <span className="text-muted">Nursery to 8th</span>
+                        </div>
+                      </li>
+                      <li className="d-flex align-items-start">
+                        <i className="fas fa-history text-primary mt-1 me-3" style={{ width: '20px' }}></i>
+                        <div>
+                          <strong className="d-block text-dark">Established</strong>
+                          <span className="text-muted">2010</span>
+                        </div>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -348,8 +365,8 @@ const Contact = () => {
                     required
                   ></textarea>
                 </div>
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className="btn btn-primary w-100"
                   disabled={isSubmitting}
                 >
