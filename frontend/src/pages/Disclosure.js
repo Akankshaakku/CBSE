@@ -10,8 +10,8 @@ const Disclosure = () => {
   // Detect Safari browser
   useEffect(() => {
     const userAgent = navigator.userAgent.toLowerCase();
-    const isSafariBrowser = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) || 
-                           /iphone|ipad|ipod/.test(userAgent);
+    const isSafariBrowser = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) ||
+      /iphone|ipad|ipod/.test(userAgent);
     setIsSafari(isSafariBrowser);
   }, []);
 
@@ -44,7 +44,7 @@ const Disclosure = () => {
       return newErrors;
     });
   };
-  
+
   // Get properly encoded file URL
   const getFileUrl = (filePath) => {
     // Use encodeURIComponent for proper URL encoding, but keep the path structure
@@ -187,9 +187,8 @@ const Disclosure = () => {
                       </div>
                     </div>
                     <i
-                      className={`fas fa-chevron-down transition-icon ${
-                        expandedItem === item.id ? 'expanded' : ''
-                      }`}
+                      className={`fas fa-chevron-down transition-icon ${expandedItem === item.id ? 'expanded' : ''
+                        }`}
                     ></i>
                   </div>
                   <AnimatePresence mode="wait">
@@ -217,18 +216,18 @@ const Disclosure = () => {
                                 <h5>Unable to display PDF in browser</h5>
                                 <p className="text-muted mb-3">Please download or open in a new window</p>
                                 <div className="pdf-action-buttons">
-                                  <a 
-                                    href={getFileUrl(item.file)} 
-                                    target="_blank" 
+                                  <a
+                                    href={getFileUrl(item.file)}
+                                    target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn btn-primary me-2"
                                     download
                                   >
                                     <i className="fas fa-download me-2"></i>Download PDF
                                   </a>
-                                  <a 
-                                    href={getFileUrl(item.file)} 
-                                    target="_blank" 
+                                  <a
+                                    href={getFileUrl(item.file)}
+                                    target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn btn-outline-primary"
                                   >
@@ -251,18 +250,18 @@ const Disclosure = () => {
                                 <div className="pdf-fallback">
                                   <p className="mb-3">Your browser does not support inline PDF viewing.</p>
                                   <div className="pdf-action-buttons">
-                                    <a 
-                                      href={getFileUrl(item.file)} 
-                                      target="_blank" 
+                                    <a
+                                      href={getFileUrl(item.file)}
+                                      target="_blank"
                                       rel="noopener noreferrer"
                                       className="btn btn-primary me-2"
                                       download
                                     >
                                       <i className="fas fa-download me-2"></i>Download PDF
                                     </a>
-                                    <a 
-                                      href={getFileUrl(item.file)} 
-                                      target="_blank" 
+                                    <a
+                                      href={getFileUrl(item.file)}
+                                      target="_blank"
                                       rel="noopener noreferrer"
                                       className="btn btn-outline-primary"
                                     >
@@ -286,18 +285,18 @@ const Disclosure = () => {
                                 <div className="pdf-fallback">
                                   <p className="mb-3">Your browser does not support PDFs.</p>
                                   <div className="pdf-action-buttons">
-                                    <a 
-                                      href={getFileUrl(item.file)} 
-                                      target="_blank" 
+                                    <a
+                                      href={getFileUrl(item.file)}
+                                      target="_blank"
                                       rel="noopener noreferrer"
                                       className="btn btn-primary me-2"
                                       download
                                     >
                                       <i className="fas fa-download me-2"></i>Download PDF
                                     </a>
-                                    <a 
-                                      href={getFileUrl(item.file)} 
-                                      target="_blank" 
+                                    <a
+                                      href={getFileUrl(item.file)}
+                                      target="_blank"
                                       rel="noopener noreferrer"
                                       className="btn btn-outline-primary"
                                     >
