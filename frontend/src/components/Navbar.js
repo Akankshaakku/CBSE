@@ -89,216 +89,216 @@ const Navbar = () => {
   return (
     <>
       <nav className={`navbar-new ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="container navbar-container">
-        <Link className="navbar-brand-new" to="/">
-          <img 
-            src="/image/logo.jpg" 
-            alt="CPPS Logo" 
-            className="navbar-logo" 
-            onError={(e) => {
-              e.target.onerror = null;
-              e.target.src = '/image/faviconLogo.png';
-            }}
-          />
-          <span className="brand-text">CPPS</span>
-        </Link>
+        <div className="container navbar-container">
+          <Link className="navbar-brand-new" to="/">
+            <img
+              src="/image/logo.jpg"
+              alt="CPPS Logo"
+              className="navbar-logo"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = '/image/favicon.jpg';
+              }}
+            />
+            <span className="brand-text">CPPS</span>
+          </Link>
 
-        <button
-          ref={togglerRef}
-          className="navbar-toggler-new"
-          type="button"
-          onClick={toggleMenu}
-          onTouchEnd={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleMenu(e);
-          }}
-          aria-expanded={isMenuOpen}
-          aria-label="Toggle navigation menu"
-          style={{ zIndex: 1002 }}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        {isMenuOpen && (
-          <div 
-            className="mobile-menu-overlay"
+          <button
+            ref={togglerRef}
+            className="navbar-toggler-new"
+            type="button"
             onClick={toggleMenu}
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              background: 'rgba(0,0,0,0.5)',
-              zIndex: 1000
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              toggleMenu(e);
             }}
-          />
-        )}
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle navigation menu"
+            style={{ zIndex: 1002 }}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
-        <div 
-          ref={menuRef}
-          className={`navbar-menu-new ${isMenuOpen ? 'show' : ''}`}
-        >
-          <ul className="navbar-nav-new">
-            <li className="nav-item-new">
-              <Link 
-                className="nav-link-new" 
-                to="/" 
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  setIsFacilitiesOpen(false);
-                  setIsBlogOpen(false);
-                }}
-              >
-                Home
-              </Link>
-            </li>
-            <li className="nav-item-new">
-              <Link 
-                className="nav-link-new" 
-                to="/about" 
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  setIsFacilitiesOpen(false);
-                  setIsBlogOpen(false);
-                }}
-              >
-                About
-              </Link>
-            </li>
-            <li className="nav-item-new">
-              <Link 
-                className="nav-link-new" 
-                to="/gallery" 
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  setIsFacilitiesOpen(false);
-                  setIsBlogOpen(false);
-                }}
-              >
-                Gallery
-              </Link>
-            </li>
-            <li className="nav-item-new">
-              <Link 
-                className="nav-link-new" 
-                to="/faculty" 
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  setIsFacilitiesOpen(false);
-                  setIsBlogOpen(false);
-                }}
-              >
-                Faculty
-              </Link>
-            </li>
-            <li className="nav-item-new dropdown-new">
-              <button
-                className="nav-link-new dropdown-toggle-new"
-                onClick={toggleFacilities}
-              >
-                <i className="fas fa-building me-2"></i>
-                Facilities
-                <i className={`fas fa-chevron-down ms-2 ${isFacilitiesOpen ? 'open' : ''}`}></i>
-              </button>
-              <div className={`dropdown-menu-new ${isFacilitiesOpen ? 'show' : ''}`}>
-                {facilitiesList.map((facility, index) => (
-                  <Link
-                    key={index}
-                    to={facility.path}
-                    className="dropdown-item-new"
-                    onClick={() => {
-                      setIsFacilitiesOpen(false);
-                      setIsMenuOpen(false);
-                      // Scroll to facilities section if on home page
-                      if (facility.path.includes('#facilities')) {
-                        setTimeout(() => {
-                          const element = document.getElementById('facilities');
-                          if (element) {
-                            element.scrollIntoView({ behavior: 'smooth' });
-                          }
-                        }, 100);
-                      }
-                    }}
-                  >
-                    <i className={`fas ${facility.icon} me-2`}></i>
-                    {facility.name}
-                  </Link>
-                ))}
-              </div>
-            </li>
-            
+          {isMenuOpen && (
+            <div
+              className="mobile-menu-overlay"
+              onClick={toggleMenu}
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: 'rgba(0,0,0,0.5)',
+                zIndex: 1000
+              }}
+            />
+          )}
 
-            <li className="nav-item-new dropdown-new">
-              <button
-                className="nav-link-new dropdown-toggle-new"
-                onClick={() => setIsBlogOpen(!isBlogOpen)}
-              >
-                <i className="fas fa-newspaper me-2"></i>
-                Blog
-                <i className={`fas fa-chevron-down ms-2 ${isBlogOpen ? 'open' : ''}`}></i>
-              </button>
-              <div className={`dropdown-menu-new ${isBlogOpen ? 'show' : ''}`}>
+          <div
+            ref={menuRef}
+            className={`navbar-menu-new ${isMenuOpen ? 'show' : ''}`}
+          >
+            <ul className="navbar-nav-new">
+              <li className="nav-item-new">
                 <Link
-                  to="/blog"
-                  className="dropdown-item-new"
+                  className="nav-link-new"
+                  to="/"
                   onClick={() => {
-                    setIsBlogOpen(false);
                     setIsMenuOpen(false);
+                    setIsFacilitiesOpen(false);
+                    setIsBlogOpen(false);
                   }}
                 >
-                  <i className="fas fa-list me-2"></i>
-                  Blog List
+                  Home
                 </Link>
-              </div>
-            </li>
-            <li className="nav-item-new">
-              <Link 
-                className="nav-link-new" 
-                to="/disclosure" 
+              </li>
+              <li className="nav-item-new">
+                <Link
+                  className="nav-link-new"
+                  to="/about"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setIsFacilitiesOpen(false);
+                    setIsBlogOpen(false);
+                  }}
+                >
+                  About
+                </Link>
+              </li>
+              <li className="nav-item-new">
+                <Link
+                  className="nav-link-new"
+                  to="/gallery"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setIsFacilitiesOpen(false);
+                    setIsBlogOpen(false);
+                  }}
+                >
+                  Gallery
+                </Link>
+              </li>
+              <li className="nav-item-new">
+                <Link
+                  className="nav-link-new"
+                  to="/faculty"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setIsFacilitiesOpen(false);
+                    setIsBlogOpen(false);
+                  }}
+                >
+                  Faculty
+                </Link>
+              </li>
+              <li className="nav-item-new dropdown-new">
+                <button
+                  className="nav-link-new dropdown-toggle-new"
+                  onClick={toggleFacilities}
+                >
+                  <i className="fas fa-building me-2"></i>
+                  Facilities
+                  <i className={`fas fa-chevron-down ms-2 ${isFacilitiesOpen ? 'open' : ''}`}></i>
+                </button>
+                <div className={`dropdown-menu-new ${isFacilitiesOpen ? 'show' : ''}`}>
+                  {facilitiesList.map((facility, index) => (
+                    <Link
+                      key={index}
+                      to={facility.path}
+                      className="dropdown-item-new"
+                      onClick={() => {
+                        setIsFacilitiesOpen(false);
+                        setIsMenuOpen(false);
+                        // Scroll to facilities section if on home page
+                        if (facility.path.includes('#facilities')) {
+                          setTimeout(() => {
+                            const element = document.getElementById('facilities');
+                            if (element) {
+                              element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                          }, 100);
+                        }
+                      }}
+                    >
+                      <i className={`fas ${facility.icon} me-2`}></i>
+                      {facility.name}
+                    </Link>
+                  ))}
+                </div>
+              </li>
+
+
+              <li className="nav-item-new dropdown-new">
+                <button
+                  className="nav-link-new dropdown-toggle-new"
+                  onClick={() => setIsBlogOpen(!isBlogOpen)}
+                >
+                  <i className="fas fa-newspaper me-2"></i>
+                  Blog
+                  <i className={`fas fa-chevron-down ms-2 ${isBlogOpen ? 'open' : ''}`}></i>
+                </button>
+                <div className={`dropdown-menu-new ${isBlogOpen ? 'show' : ''}`}>
+                  <Link
+                    to="/blog"
+                    className="dropdown-item-new"
+                    onClick={() => {
+                      setIsBlogOpen(false);
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    <i className="fas fa-list me-2"></i>
+                    Blog List
+                  </Link>
+                </div>
+              </li>
+              <li className="nav-item-new">
+                <Link
+                  className="nav-link-new"
+                  to="/disclosure"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setIsFacilitiesOpen(false);
+                    setIsBlogOpen(false);
+                  }}
+                >
+                  Mandatory Public Discloser
+                </Link>
+              </li>
+              <li className="nav-item-new">
+                <Link
+                  className="nav-link-new"
+                  to="/contact"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setIsFacilitiesOpen(false);
+                    setIsBlogOpen(false);
+                  }}
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+            <div className="navbar-actions">
+              <DarkModeToggle />
+              <Link
+                to="/contact"
+                className="btn btn-primary-new btn-sm"
                 onClick={() => {
                   setIsMenuOpen(false);
                   setIsFacilitiesOpen(false);
                   setIsBlogOpen(false);
                 }}
               >
-                Mandatory Public Discloser
+                Enquiry Now
               </Link>
-            </li>
-            <li className="nav-item-new">
-              <Link 
-                className="nav-link-new" 
-                to="/contact" 
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  setIsFacilitiesOpen(false);
-                  setIsBlogOpen(false);
-                }}
-              >
-                Contact
-              </Link>
-            </li>
-          </ul>
-          <div className="navbar-actions">
-            <DarkModeToggle />
-            <Link 
-              to="/contact" 
-              className="btn btn-primary-new btn-sm" 
-              onClick={() => {
-                setIsMenuOpen(false);
-                setIsFacilitiesOpen(false);
-                setIsBlogOpen(false);
-              }}
-            >
-              Enquiry Now
-            </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
     </>
   );
 };

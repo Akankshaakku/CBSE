@@ -208,28 +208,7 @@ const Footer = () => {
           </div>
           <div className="col-md-6 col-12">
             {/* Developer Information Section */}
-            <div className="footer-developer-section">
-              <div className="developer-info-wrapper">
-                <div className="developer-text">
-                  <p className="developed-by-text">Developed by</p>
-                  <p className="developer-name">Akash Singh</p>
-                  <p className="developer-title">Full Stack Developer</p>
-                  <p className="developer-college">MITS Gwalior</p>
-                </div>
-                <div className="developer-image-wrapper">
-                  {imageError ? (
-                    <div className="developer-image-placeholder">AS</div>
-                  ) : (
-                    <img 
-                      src="/image/dp.jpg" 
-                      alt="Akash Singh - Full Stack Developer" 
-                      className="developer-profile-image"
-                      onError={() => setImageError(true)}
-                    />
-                  )}
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
         <div className="row" style={{ marginTop: '15px' }}>

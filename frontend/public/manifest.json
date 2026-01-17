@@ -4,25 +4,25 @@
   "description": "Children's Paradise Public School (CPPS) - Premier CBSE educational institution in Muzaffarpur, Bihar",
   "icons": [
     {
-      "src": "image/faviconLogo.png",
+      "src": "image/favicon.jpg",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "image/faviconLogo.png",
+      "src": "image/favicon.jpg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "logo.jpeg",
-      "type": "image/png",
+      "src": "image/logo.jpg",
+      "type": "image/jpeg",
       "sizes": "192x192"
     },
     {
-      "src": "logo.jpeg",
-      "type": "image/png",
+      "src": "image/logo.jpg",
+      "type": "image/jpeg",
       "sizes": "512x512"
     }
   ],
