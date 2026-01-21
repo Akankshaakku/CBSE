@@ -271,6 +271,19 @@ const Navbar = () => {
               <li className="nav-item-new">
                 <Link
                   className="nav-link-new"
+                  to="/developer"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setIsFacilitiesOpen(false);
+                    setIsBlogOpen(false);
+                  }}
+                >
+                  Developer
+                </Link>
+              </li>
+              <li className="nav-item-new">
+                <Link
+                  className="nav-link-new"
                   to="/contact"
                   onClick={() => {
                     setIsMenuOpen(false);

@@ -19,6 +19,7 @@ import Faculty from './pages/Faculty';
 import Contact from './pages/Contact';
 import Disclosure from './pages/Disclosure';
 import Blog from './pages/Blog';
+import Developer from './pages/Developer';
 import NotFound from './pages/NotFound';
 
 // Styles
@@ -51,6 +52,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/disclosure" element={<Disclosure />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/developer" element={<Developer />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />

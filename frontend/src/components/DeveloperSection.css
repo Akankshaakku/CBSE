@@ -1,0 +1,304 @@
+/* Developer Section Styles */
+.developer-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f9f9f9 0%, rgba(233, 69, 96, 0.05) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.developer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(249, 249, 249, 0.7);
+    z-index: 1;
+}
+
+.dark-mode .developer-section {
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+}
+
+.dark-mode .developer-section::before {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.developer-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.developer-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 50px;
+    box-shadow: 0 20px 60px var(--shadow);
+    border: 1px solid var(--border);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.developer-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #1a4b84 0%, #e94560 50%, #ffa502 100%);
+}
+
+.dark-mode .developer-card {
+    background: var(--card-bg);
+    border-color: var(--border);
+    box-shadow: 0 20px 60px var(--shadow-lg);
+}
+
+.developer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 80px var(--shadow-lg);
+}
+
+/* Developer Image */
+.developer-image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(26, 75, 132, 0.2);
+    transition: all 0.4s ease;
+}
+
+.developer-image-wrapper:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 50px rgba(26, 75, 132, 0.3);
+}
+
+.developer-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+}
+
+.developer-image-wrapper:hover .developer-image {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.developer-image-wrapper:hover .image-overlay {
+    transform: translateY(0);
+}
+
+.linkedin-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #0077b5;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 119, 181, 0.4);
+}
+
+.linkedin-badge:hover {
+    background: #005582;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 119, 181, 0.6);
+    color: white;
+}
+
+.linkedin-badge i {
+    font-size: 1.2rem;
+}
+
+/* Developer Content */
+.developer-content {
+    padding-left: 30px;
+}
+
+.developer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(26, 75, 132, 0.1) 0%, rgba(233, 69, 96, 0.1) 100%);
+    color: var(--primary);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(26, 75, 132, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.dark-mode .developer-badge {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(96, 165, 250, 0.15) 100%);
+    color: #60a5fa;
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.developer-badge i {
+    font-size: 1rem;
+}
+
+.developer-name-large {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dark-mode .developer-name-large {
+    background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.developer-role {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.dark-mode .developer-role {
+    color: var(--text-light);
+}
+
+.developer-institution-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.developer-institution-text i {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.dark-mode .developer-institution-text {
+    color: var(--text-light);
+}
+
+.developer-bio {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.dark-mode .developer-bio {
+    color: var(--text-light);
+    opacity: 0.95;
+}
+
+.developer-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .developer-content {
+        padding-left: 0;
+        margin-top: 30px;
+    }
+
+    .developer-card {
+        padding: 40px 30px;
+    }
+
+    .developer-name-large {
+        font-size: 2rem;
+    }
+
+    .developer-role {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .developer-section {
+        padding: 60px 0;
+    }
+
+    .developer-card {
+        padding: 30px 20px;
+    }
+
+    .developer-name-large {
+        font-size: 1.75rem;
+    }
+
+    .developer-role {
+        font-size: 1.2rem;
+    }
+
+    .developer-bio {
+        font-size: 1rem;
+    }
+
+    .developer-image-wrapper {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .developer-card {
+        padding: 25px 15px;
+    }
+
+    .developer-name-large {
+        font-size: 1.5rem;
+    }
+
+    .developer-role {
+        font-size: 1.1rem;
+    }
+
+    .developer-institution-text {
+        font-size: 1rem;
+    }
+
+    .developer-bio {
+        font-size: 0.95rem;
+    }
+
+    .btn-primary-new {
+        width: 100%;
+        justify-content: center;
+    }
+}
