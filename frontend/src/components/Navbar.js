@@ -90,17 +90,23 @@ const Navbar = () => {
     <>
       <nav className={`navbar-new ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container navbar-container">
-          <Link className="navbar-brand-new" to="/">
+          <Link className="navbar-brand-new" to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <img
               src="/image/logo.jpg"
               alt="CPPS Logo"
               className="navbar-logo"
+              style={{ marginRight: '10px', flexShrink: 0 }}
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = '/image/favicon.jpg';
               }}
             />
-            <span className="brand-text">CPPS</span>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <span className="brand-text" style={{ lineHeight: '1.1' }}>CPPS</span>
+              <span style={{ fontSize: '11px', color: '#6c757d', fontWeight: '600', marginTop: '2px', lineHeight: '1.2' }}>
+                A SENIOR SECONDARY SCHOOL <br /> AFFILIATED TO CBSE, NEW DELHI (10+2)
+              </span>
+            </div>
           </Link>
 
           <button

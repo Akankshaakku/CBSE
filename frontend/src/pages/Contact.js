@@ -266,35 +266,35 @@ const Contact = () => {
                       <li className="mb-3 d-flex align-items-start">
                         <i className="fas fa-graduation-cap text-primary mt-1 me-3" style={{ width: '20px' }}></i>
                         <div>
-                          <strong className="d-block text-dark">School Name</strong>
+                          <strong className="text-dark me-2">School Name:</strong>
                           <span className="text-muted">Children's Paradise Public School</span>
                         </div>
                       </li>
                       <li className="mb-3 d-flex align-items-start">
                         <i className="fas fa-map-marked-alt text-primary mt-1 me-3" style={{ width: '20px' }}></i>
                         <div>
-                          <strong className="d-block text-dark">Location</strong>
+                          <strong className="text-dark me-2">Location:</strong>
                           <span className="text-muted">Muzaffarpur, Bihar</span>
                         </div>
                       </li>
                       <li className="mb-3 d-flex align-items-start">
                         <i className="fas fa-certificate text-primary mt-1 me-3" style={{ width: '20px' }}></i>
                         <div>
-                          <strong className="d-block text-dark">Affiliation</strong>
-                          <span className="text-muted">CBSE (In Progress)</span>
+                          <strong className="text-dark me-2">Affiliation:</strong>
+                          <span className="text-muted">Affiliated to CBSE, New Delhi (10+2)</span>
                         </div>
                       </li>
                       <li className="mb-3 d-flex align-items-start">
                         <i className="fas fa-chalkboard-teacher text-primary mt-1 me-3" style={{ width: '20px' }}></i>
                         <div>
-                          <strong className="d-block text-dark">Classes</strong>
-                          <span className="text-muted">Nursery to 8th</span>
+                          <strong className="text-dark me-2">Classes:</strong>
+                          <span className="text-muted">Nursery to 12th</span>
                         </div>
                       </li>
                       <li className="d-flex align-items-start">
                         <i className="fas fa-history text-primary mt-1 me-3" style={{ width: '20px' }}></i>
                         <div>
-                          <strong className="d-block text-dark">Established</strong>
+                          <strong className="text-dark me-2">Established:</strong>
                           <span className="text-muted">2010</span>
                         </div>
                       </li>
