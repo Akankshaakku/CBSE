@@ -50,7 +50,7 @@ const Faculty = () => {
     {
       id: 8,
       name: 'Vinita Pandey',
-      position: 'Snaskrit Teacher',
+      position: 'Sanskrit Teacher',
       image: '/image/FAC7.png'
     },
     {
@@ -104,7 +104,7 @@ const Faculty = () => {
     {
       id: 17,
       name: 'Sandhya Kumari',
-      position: 'Snaskrit Teacher',
+      position: 'Sanskrit Teacher',
       image: '/image/FAC19.png'
     },
     {
