@@ -281,14 +281,14 @@ const Contact = () => {
                         <i className="fas fa-certificate text-primary mt-1 me-3" style={{ width: '20px' }}></i>
                         <div>
                           <strong className="text-dark me-2">Affiliation:</strong>
-                          <span className="text-muted">Affiliated to CBSE, New Delhi (10+2)</span>
+                          <span className="text-muted">Affiliated to CBSE, New Delhi</span>
                         </div>
                       </li>
                       <li className="mb-3 d-flex align-items-start">
                         <i className="fas fa-chalkboard-teacher text-primary mt-1 me-3" style={{ width: '20px' }}></i>
                         <div>
                           <strong className="text-dark me-2">Classes:</strong>
-                          <span className="text-muted">Nursery to 12th</span>
+                          <span className="text-muted">Nursery to 10</span>
                         </div>
                       </li>
                       <li className="d-flex align-items-start">

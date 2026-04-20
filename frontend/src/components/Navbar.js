@@ -104,7 +104,7 @@ const Navbar = () => {
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <span className="brand-text" style={{ lineHeight: '1.1' }}>CPPS</span>
               <span style={{ fontSize: '11px', color: '#6c757d', fontWeight: '600', marginTop: '2px', lineHeight: '1.2' }}>
-                A SENIOR SECONDARY SCHOOL <br /> AFFILIATED TO CBSE, NEW DELHI (10+2)
+                A SECONDARY SCHOOL <br /> AFFILIATED TO C.B.S.E, NEW DELHI
               </span>
             </div>
           </Link>
