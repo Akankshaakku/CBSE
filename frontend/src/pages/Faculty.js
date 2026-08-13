@@ -18,9 +18,9 @@ const Faculty = () => {
     },
     {
       id: 3,
-      name: 'Rashmi Kumari',
+      name: 'Akanksha Singh',
       position: 'Manager',
-      image: '/image/FAC13.png'
+      image: '/image/manager_akanksha.jpg'
     },
     // Faculty Members from Images
     {

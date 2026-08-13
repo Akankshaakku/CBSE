@@ -413,8 +413,8 @@ const Home = () => {
               <div className="faculty-card text-center p-4 shadow rounded">
                 <div className="faculty-image-wrapper">
                   <img
-                    src="/image/FAC13.png"
-                    alt="Rashmi Kumari"
+                    src="/image/manager_akanksha.jpg"
+                    alt="Akanksha Singh"
                     className="img-fluid rounded-circle"
                     style={{ width: '150px', height: '150px', objectFit: 'cover', margin: '0 auto' }}
                     onError={(e) => {
@@ -423,7 +423,7 @@ const Home = () => {
                     }}
                   />
                 </div>
-                <h5 className="mb-2">Rashmi Kumari</h5>
+                <h5 className="mb-2">Akanksha Singh</h5>
                 <h6 className="text-primary mb-2">Manager</h6>
                 <div className="faculty-social mt-3">
                   <a href="#" className="btn btn-outline-primary btn-sm me-2">
